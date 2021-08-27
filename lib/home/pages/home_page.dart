@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/main/loading_container.dart';
 import 'package:flutter_study_demo/main/web_page.dart';
@@ -12,6 +14,7 @@ import 'package:flutter_study_demo/home/widgets/local_nav.dart';
 import 'package:flutter_study_demo/home/widgets/sales_box.dart';
 import 'package:flutter_study_demo/home/widgets/search_bar.dart';
 import 'package:flutter_study_demo/home/widgets/sub_nav.dart';
+import 'package:flutter_study_demo/network/network_request.dart';
 import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 
@@ -46,8 +49,8 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
   }
 
   Future<void> _handleRefresh() async {
-    try {
-      HomeModel model = await HomeDao.fetch();
+    NetworkRequest.requestData(homeUrl, success: (resultData){
+      HomeModel model = HomeModel.fromJson(resultData);
       setState(() {
         bannerList = model.bannerList;
         localNavList = model.localNavList;
@@ -57,13 +60,31 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
         _loading = false;
       });
 
-    } catch(error) {
-      // print(error.toString());
+    }, failed: (int code, String msg){
       setState(() {
         _loading = false;
       });
-    }
-    return;
+      throw Exception("failed load home_page.json");
+    });
+
+    // try {
+    //   HomeModel model = await HomeDao.fetch();
+    //   setState(() {
+    //     bannerList = model.bannerList;
+    //     localNavList = model.localNavList;
+    //     gridNavModel = model.gridNav;
+    //     subNavList = model.subNavList;
+    //     salesBoxModel = model.salesBox;
+    //     _loading = false;
+    //   });
+    //
+    // } catch(error) {
+    //   // print(error.toString());
+    //   setState(() {
+    //     _loading = false;
+    //   });
+    // }
+    // return;
   }
 
   void _onScroll(offset) {
