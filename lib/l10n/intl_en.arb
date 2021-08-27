@@ -1,0 +1,18 @@
+{
+  "appName": "Flutter Demo",
+  "changeDarkMode": "Light/Dark Mode",
+  "changeLanguage": "Language",
+  "darkMode": "Dark Mode",
+  "lightMode": "Light Mode",
+  "automatic": "Auto",
+  "themeColor": "Theme Color",
+  "english": "English",
+  "simplifiedChinese": "Simplified Chinese",
+  "traditionalChinese": "Traditional Chinese",
+  "setting": "Setting",
+  "selectThemeColor": "Select Theme Color",
+  "home": "Home",
+  "travel": "Travel",
+  "category": "Category",
+  "mine": "Mine"
+}

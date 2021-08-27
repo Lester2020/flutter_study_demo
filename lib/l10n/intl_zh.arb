@@ -1,0 +1,18 @@
+{
+  "appName": "Flutter 练习",
+  "changeDarkMode": "切换深/浅色模式",
+  "changeLanguage": "切换语言",
+  "darkMode": "深色模式",
+  "lightMode": "浅色模式",
+  "automatic": "跟随系统",
+  "themeColor": "主题颜色",
+  "english": "英文",
+  "simplifiedChinese": "简体中文",
+  "traditionalChinese": "繁体中文",
+  "setting": "设置",
+  "selectThemeColor": "选择主题颜色",
+  "home": "首页",
+  "travel": "旅拍",
+  "category": "分类",
+  "mine": "我的"
+}
