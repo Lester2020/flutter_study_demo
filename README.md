@@ -14,8 +14,6 @@
 
 
 ## 图片预览
-  | ![home](https://github.com/Lester2020/flutter_study_demo/blob/main/thumb/001.jpg) | ![travel](https://github.com/Lester2020/flutter_study_demo/blob/main/thumb/002.jpg)
-  | :----------------------------------------------------------: | :----------------------------------------------------------: |
-  | ![category](https://github.com/Lester2020/flutter_study_demo/blob/main/thumb/003.jpg) | ![mine](https://github.com/Lester2020/flutter_study_demo/blob/main/thumb/004.jpg)
-  | :----------------------------------------------------------: | :----------------------------------------------------------: |
-  | ![mine](https://github.com/Lester2020/flutter_study_demo/blob/main/thumb/005.jpg)
+  ![screen](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/flutter_screen.gif) | ![home](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/001.jpg)
+  ![travel](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/002.jpg) | ![category](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/003.jpg)
+  ![mine](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/004.jpg) | [mine](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/005.jpg)
