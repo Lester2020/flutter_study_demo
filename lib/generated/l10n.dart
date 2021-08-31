@@ -209,6 +209,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Add account`
+  String get account {
+    return Intl.message(
+      'Add account',
+      name: 'account',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("添加賬戶"),
         "appName": MessageLookupByLibrary.simpleMessage("Flutter 練習"),
         "automatic": MessageLookupByLibrary.simpleMessage("跟隨系統"),
         "category": MessageLookupByLibrary.simpleMessage("分類"),
