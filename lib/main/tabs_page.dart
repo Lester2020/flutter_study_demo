@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study_demo/generated/l10n.dart';
+import 'package:flutter_study_demo/globe/user_event.dart';
 import 'package:flutter_study_demo/home/pages/home_page.dart';
+import 'package:flutter_study_demo/third/draw_page.dart';
 import '../travel/travel_page.dart';
 import '../basic/basic_page.dart';
 import '../third/third_page.dart';
@@ -21,6 +23,8 @@ class _TabsPageState extends State<TabsPage> {
   final Color _unselectedColor = const Color.fromRGBO(34, 34, 34, 1.0);
   final PageController _controller = PageController(initialPage: 0);
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   List<BottomNavigationBarItem> _getItems(BuildContext context) {
     List<BottomNavigationBarItem> items = [];
     List<String> _titles = [S.of(context).home, S.of(context).travel, S.of(context).category, S.of(context).mine];
@@ -39,7 +43,9 @@ class _TabsPageState extends State<TabsPage> {
 
   @override
   Widget build(BuildContext context) {
+    _listen(context);
     return Scaffold(
+      key: _scaffoldKey,
       bottomNavigationBar: BottomNavigationBar(
         items: _getItems(context),
         onTap: (index){
@@ -72,8 +78,23 @@ class _TabsPageState extends State<TabsPage> {
           ThirdPage()
         ],
       ),
+      ///抽屉
+      drawer: _index == 3 ? DrawPage() : null,
     );
   }
+
+  /// Flutter 手动控制drawer打开1.GlobalKey 方式打开
+  void _listen(BuildContext context) {
+    eventBus.on<UserEvent>().listen((event) {
+      if(event.text == "openDrawer"){
+        _scaffoldKey.currentState?.openDrawer();
+      }
+    });
+  }
+
+  ///2.builder方式:Scaffold.of(context).openDrawer(),
+ ///不过这个方式需要在含有draw的scaffold里调用
+
 }
 
 /**

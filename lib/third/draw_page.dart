@@ -35,9 +35,14 @@ class DrawPage extends StatelessWidget {
               Expanded(
                 child: ListView(
                   children: [
-                    ListTile(
-                      leading: Icon(Icons.account_balance_wallet),
-                      title: Text(S.of(context).account),
+                    InkWell(
+                      onTap: (){
+
+                      },
+                      child: ListTile(
+                        leading: Icon(Icons.account_balance_wallet),
+                        title: Text(S.of(context).account),
+                      ),
                     ),
                     Divider(),
                     InkWell(

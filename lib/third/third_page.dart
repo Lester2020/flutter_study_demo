@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/generated/l10n.dart';
-import 'package:flutter_study_demo/third/draw_page.dart';
+import 'package:flutter_study_demo/globe/user_event.dart';
 
 class ThirdPage extends StatelessWidget {
   const ThirdPage({Key? key}) : super(key: key);
@@ -13,13 +13,12 @@ class ThirdPage extends StatelessWidget {
         actions: [
           IconButton(onPressed: (){}, icon: Icon(Icons.share))
         ],
-        leading: Builder(builder: (context){
-          return IconButton(onPressed: (){
-            ///打开抽屉菜单
-            Scaffold.of(context).openDrawer();
-
-          }, icon: Icon(Icons.dashboard));
-        }),
+        leading: IconButton(
+            onPressed: (){
+          ///发送消息打开抽屉菜单
+              eventBus.fire(UserEvent("openDrawer"));
+              
+        }, icon: Icon(Icons.dashboard)),
       ),
       body: Center(
         child: Text("我的"),
@@ -30,7 +29,6 @@ class ThirdPage extends StatelessWidget {
         },
         child: Icon(Icons.add),
       ),
-      drawer: DrawPage(),
     );
   }
 
