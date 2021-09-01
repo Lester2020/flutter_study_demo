@@ -26,6 +26,7 @@ import 'package:flutter_study_demo/basic/widgets/draggable_file.dart';
 import 'package:flutter_study_demo/basic/widgets/expanded_file.dart';
 import 'package:flutter_study_demo/basic/widgets/expansiontile_file.dart';
 import 'package:flutter_study_demo/basic/widgets/fractionallysizedbox_file.dart';
+import 'package:flutter_study_demo/basic/widgets/future_builder_file.dart';
 import 'package:flutter_study_demo/basic/widgets/gesturedetector_file.dart';
 import 'package:flutter_study_demo/basic/widgets/gridview_file.dart';
 import 'package:flutter_study_demo/basic/widgets/image_demo.dart';
@@ -157,4 +158,5 @@ Map<String, Widget> itemRouters = {
   "键盘弹起收起监听" : const KeyboardDemoPage(),
   "高斯模糊组件-ImageFilter" : const MyBlurDemoPage(),
   "形变动画组件-AnimatedContainer" : const AnimationContainerDemoPage(),
+  "异步组件-FutureBuilder" : const FutureBuilderFile(),
 };
