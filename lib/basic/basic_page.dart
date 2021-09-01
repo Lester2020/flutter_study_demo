@@ -12,6 +12,7 @@ import 'package:flutter_study_demo/basic/demo/animation_container_demo_page.dart
 import 'package:flutter_study_demo/basic/demo/blur_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/keybord_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/transform_demo_page.dart';
+import 'package:flutter_study_demo/basic/inherited/inherited_widget_file.dart';
 import 'package:flutter_study_demo/basic/stick/stick_demo_page.dart';
 import 'package:flutter_study_demo/basic/widgets/alert_dialog_file.dart';
 import 'package:flutter_study_demo/basic/widgets/aspectratio_file.dart';
@@ -159,4 +160,5 @@ Map<String, Widget> itemRouters = {
   "高斯模糊组件-ImageFilter" : const MyBlurDemoPage(),
   "形变动画组件-AnimatedContainer" : const AnimationContainerDemoPage(),
   "异步组件-FutureBuilder" : const FutureBuilderFile(),
+  "数据共享-InheritedWidget" : const InheritedWidgetFile(),
 };
