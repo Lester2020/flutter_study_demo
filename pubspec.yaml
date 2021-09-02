@@ -50,6 +50,8 @@ dependencies:
   connectivity: ^3.0.6
   #全局事件
   event_bus: ^2.0.0
+  #访问相册插件
+  image_picker: ^0.8.4
 
 dev_dependencies:
   flutter_test:
