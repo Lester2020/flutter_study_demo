@@ -61,6 +61,7 @@ import 'package:flutter_study_demo/basic/widgets/text_file.dart';
 import 'package:flutter_study_demo/basic/widgets/textfield_file.dart';
 import 'package:flutter_study_demo/basic/widgets/timepicker_file.dart';
 import 'package:flutter_study_demo/basic/widgets/wrap_file.dart';
+import 'package:flutter_study_demo/globe/user_event.dart';
 
 class BasicPage extends StatelessWidget {
   const BasicPage({Key? key}) : super(key: key);
@@ -71,7 +72,16 @@ class BasicPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter基础"),
-        backgroundColor: const Color.fromRGBO(237, 67, 71, 1.0),
+        // backgroundColor: const Color.fromRGBO(237, 67, 71, 1.0),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.share))
+        ],
+        leading: IconButton(
+            onPressed: (){
+              ///发送消息打开抽屉菜单
+              eventBus.fire(UserEvent("openDrawer"));
+
+            }, icon: Icon(Icons.dashboard)),
       ),
       body: Scrollbar(
         child: ListView.builder(
@@ -94,7 +104,13 @@ class BasicPage extends StatelessWidget {
             );
           },
         ),
-      )
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+
+        },
+        child: Icon(Icons.add),
+      ),
     );
   }
 
@@ -162,5 +178,5 @@ Map<String, Widget> itemRouters = {
   "形变动画组件-AnimatedContainer" : const AnimationContainerDemoPage(),
   "异步组件-FutureBuilder" : const FutureBuilderFile(),
   "数据共享-InheritedWidget" : const InheritedWidgetFile(),
-  "三方—访问原生相册" : const PhotosFile(),
+  "三方插件—访问原生相册" : const PhotosFile(),
 };

@@ -105,6 +105,7 @@ flutter:
       - images/logo_lockup_flutter_vertical_wht.png
       - images/splash.png
       - images/ic_theme.png
+      - images/icon_publish.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

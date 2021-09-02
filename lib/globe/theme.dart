@@ -27,6 +27,9 @@ class AppTheme {
         ? Colors.black
         : (themeColorMap[provider.themeColor] ??
             const Color.fromRGBO(237, 67, 71, 1.0));
+    ///下面这些颜色特性，可以在子组件里面重新设置而覆盖这里的设置，比方某个页面的导航栏颜色
+    ///在APPBar里面重新设置backgroundColor就覆盖这里的全局设置
+
     return ThemeData(
 
         ///主色，决定导航栏颜色,如果是系统自带的颜色属性，可以使用primaryColor
