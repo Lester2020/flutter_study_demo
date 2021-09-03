@@ -79,7 +79,7 @@ class _TabsPageState extends State<TabsPage> {
         ],
       ),
       ///抽屉
-      drawer: _index == 3 ? DrawPage() : null,
+      drawer: _index == 2 ? DrawPage() : null,
     );
   }
 

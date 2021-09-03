@@ -1,7 +1,10 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/globe/app_provider.dart';
 import 'package:flutter_study_demo/globe/colors.dart';
 import 'package:flutter_study_demo/globe/global.dart';
+import 'package:flutter_study_demo/third/widgets/custom_underline_tab_indicator.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({Key? key}) : super(key: key);
@@ -13,11 +16,23 @@ class ThirdPage extends StatefulWidget {
 class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
 
   late TabController _controller;
+  final List<Map<String, dynamic>> _heads = [
+    {"title":"推荐", "subUrl":"dynamic/headline-list", "types":{"from": "toutiao"}},
+    {"title":"科技", "subUrl":"dynamic/normal-list", "types":{"from": "T1348649580692"}},
+    {"title":"历史", "subUrl":"dynamic/normal-list", "types":{"from": "T1368497029546"}},
+    {"title":"军事", "subUrl":"dynamic/normal-list", "types":{"from": "T1348648141035"}},
+    {"title":"手机", "subUrl":"dynamic/normal-list", "types":{"from": "T1348649654285"}},
+    {"title":"体育", "subUrl":"dynamic/normal-list", "types":{"from": "T1348649079062"}},
+    {"title":"财经", "subUrl":"dynamic/normal-list", "types":{"from": "T1348648756099"}},
+    {"title":"教育", "subUrl":"dynamic/normal-list", "types":{"from": "T1348654225495"}},
+    {"title":"娱乐", "subUrl":"dynamic/normal-list", "types":{"from": "T1348648517839"}},
+    {"title":"公开课", "subUrl":"dynamic/normal-list", "types":{"from": "T1524118019401"}},
+  ];
 
   @override
   void initState() {
     super.initState();
-    _controller = TabController(length: 8, vsync: this);
+    _controller = TabController(length: _heads.length, vsync: this);
   }
 
   @override
@@ -29,6 +44,7 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff2f2f2),
       body: Column(
         children: [
           Container(
@@ -87,35 +103,38 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
                   ),
                 ),
                 Container(
+                  color: Colors.white,
                   height: 34.0,
                   child: TabBar(
                     controller: _controller,
                     isScrollable: true,
-                    tabs: [
-                      Tab(text: "推荐"),
-                      Tab(text: "视频"),
-                      Tab(text: "小视频"),
-                      Tab(text: "科技"),
-                      Tab(text: "互联网"),
-                      Tab(text: "美食"),
-                      Tab(text: "段子"),
-                      Tab(text: "疫情"),
-                    ],
+                    tabs: _heads.map((dict) {
+                      return Tab(
+                        text: dict["title"].toString()
+                      );
+                    }).toList(),
+                    labelColor: Colors.black,
+                    labelPadding: EdgeInsets.fromLTRB(8, 0, 8, 0),
+                    indicator: CustomUnderlineTabIndicator(
+                      insets: EdgeInsets.fromLTRB(5, 0, 5, 2),
+                      borderSide: BorderSide(color: themeColorMap[AppProvider.instance.themeColor]!, width: 3),
+                    ),
+                    labelStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
+                    unselectedLabelStyle: TextStyle(fontSize: 17),
                   ),
                 )
               ],
             ),
           ),
           Flexible(
-            child: Container(
-              color: Colors.red,
+            child: TabBarView(
+              controller: _controller,
+              children: _heads.map((dict){
+                return Center(
+                  child: Text(dict["title"].toString()),
+                );
+              }).toList(),
             ),
-            // child: TabBarView(
-            //   controller: _controller,
-            //   children: [
-            //
-            //   ],
-            // ),
           )
         ],
       ),
@@ -123,4 +142,5 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
     );
   }
 }
+
 
