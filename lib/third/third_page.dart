@@ -5,6 +5,7 @@ import 'package:flutter_study_demo/globe/app_provider.dart';
 import 'package:flutter_study_demo/globe/colors.dart';
 import 'package:flutter_study_demo/globe/global.dart';
 import 'package:flutter_study_demo/third/widgets/custom_underline_tab_indicator.dart';
+import 'package:flutter_study_demo/third/widgets/news_page.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({Key? key}) : super(key: key);
@@ -130,9 +131,7 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
             child: TabBarView(
               controller: _controller,
               children: _heads.map((dict){
-                return Center(
-                  child: Text(dict["title"].toString()),
-                );
+                return NewsPage(subUrl: dict["subUrl"], params: dict["types"]);
               }).toList(),
             ),
           )
