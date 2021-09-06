@@ -19,9 +19,14 @@ class NewsModel {
   String? _imgsrc;
   bool? _showFollow;
   List<TagList>? _tagList;
+  List<ImgNewextra>? _imgnewextra;
 
   /// 显示类型
   NewsType get type {
+    if(_imgnewextra != null){
+      return NewsType.multipleImg;
+    }
+
     if(_imgsrc != null){
       return NewsType.singleImg;
     }
@@ -47,6 +52,7 @@ class NewsModel {
   String? get imgsrc => _imgsrc;
   bool? get showFollow => _showFollow;
   List<TagList>? get tagList => _tagList;
+  List<ImgNewextra>? get imgnewextra => _imgnewextra;
 
   NewsModel({
     String? tid,
@@ -58,6 +64,7 @@ class NewsModel {
     String? replyid,
     String? imgsrc,
     List<TagList>? tagList,
+    List<ImgNewextra>? imgnewextra,
     bool? showFollow}){
     _docid = docid;
     _title = title;
@@ -68,6 +75,7 @@ class NewsModel {
     _showFollow = showFollow;
     _imgsrc = imgsrc;
     _tagList = tagList;
+    _imgnewextra = imgnewextra;
   }
 
   NewsModel.fromJson(dynamic json) {
@@ -84,6 +92,12 @@ class NewsModel {
         _tagList?.add(TagList.fromJson(v));
       });
     }
+    if(json["imgnewextra"] != null) {
+      _imgnewextra = [];
+      json['imgnewextra'].forEach((v) {
+        _imgnewextra?.add(ImgNewextra.fromJson(v));
+      });
+    }
     _showFollow = json['showFollow'];
   }
 
@@ -97,6 +111,9 @@ class NewsModel {
     map['ptime'] = _ptime;
     if (_tagList != null) {
       map['tagList'] = _tagList?.map((v) => v.toJson()).toList();
+    }
+    if(_imgnewextra != null) {
+      map['imgnewextra'] = _imgnewextra?.map((e) => e.toJson()).toString();
     }
     map['showFollow'] = _showFollow;
     map["imgsrc"] = _imgsrc;
@@ -134,6 +151,34 @@ class TagList {
     map['level'] = _level;
     map['text'] = _text;
     map['type'] = _type;
+    return map;
+  }
+
+}
+
+class ImgNewextra {
+  String? _imgsrc;
+  String? _pixel;
+
+  String? get imgsrc => _imgsrc;
+  String? get pixel => _pixel;
+
+  ImgNewextra({
+    String? imgsrc,
+    String? pixel}){
+    _imgsrc = imgsrc;
+    _pixel = pixel;
+  }
+
+  ImgNewextra.fromJson(dynamic json) {
+    _imgsrc = json['imgsrc'];
+    _pixel = json['pixel'];
+  }
+
+  Map<String, dynamic> toJson() {
+    var map = <String, dynamic>{};
+    map['imgsrc'] = _imgsrc;
+    map['pixel'] = _pixel;
     return map;
   }
 

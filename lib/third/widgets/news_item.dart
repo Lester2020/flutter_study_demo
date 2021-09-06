@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/globe/colors.dart';
+import 'package:flutter_study_demo/globe/global.dart';
 import 'package:flutter_study_demo/third/model/news_model.dart';
 
 class NewsItem extends StatefulWidget {
@@ -36,8 +37,12 @@ class _NewsItemState extends State<NewsItem> {
       return null;
     }
 
-    if(widget.model!.type == NewsType.singleImg){
+    if(widget.model?.type == NewsType.singleImg){
       return _singleImgItem();
+    }
+
+    if(widget.model?.type == NewsType.multipleImg){
+      return _multipleImgItem();
     }
 
     return _textNewsItem();
@@ -123,21 +128,47 @@ class _NewsItemState extends State<NewsItem> {
             ),
           ),
           SizedBox(width: 8),
-          AspectRatio(
-            aspectRatio: 1.5,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(4),
-              child: Image.network(
-                widget.model?.imgsrc ?? "",
-                fit: BoxFit.cover,
-              ),
-            ),
-          )
+          _radiusImage(widget.model?.imgsrc ?? "")
         ],
       ),
     );
   }
 
+  _radiusImage(String imgName) {
+    return AspectRatio(
+      aspectRatio: 1.35,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(4),
+        child: Image.network(
+          imgName,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
   /// 多图片单元格
+  _multipleImgItem() {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _titleItem(),
+        Container(
+          height: (Global.screenWidth - 30 - 10) / 3 / 1.35 + 12,
+          padding: EdgeInsets.only(top: 6, bottom: 6),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              _radiusImage(widget.model?.imgsrc ?? ""),
+              _radiusImage(widget.model?.imgnewextra?.first.imgsrc ?? ""),
+              _radiusImage(widget.model?.imgnewextra?.last.imgsrc ?? ""),
+            ],
+          ),
+        ),
+        _sourceItem()
+      ],
+    );
+  }
 
 }

@@ -13,6 +13,16 @@ const headers = {
   "user-d":"AU/I4gdRPg01Oa35A7Rx9cgoij07diFUGbX6Z1WtljIB5UztsuQ5jl0T01RoImAl",
   "user-n":"WMJEFhR9rRqgr30oX2W7DQ=="
 };
+const baseParams = {
+  "devId":"AU/I4gdRPg01Oa35A7Rx9cgoij07diFUGbX6Z1WtljIB5UztsuQ5jl0T01RoImAl",
+  "version":"76.1",
+  "spever":false,
+  "net":"wifi",
+  "sign":"KrdzeKfyPUG8ZjcVKRHy1ojetlYdi/EDvPc2TJNURqR48ErR02zJ6/KXOnxX046I",
+  "encryption":"1",
+  "canal":"appstore",
+  "fn":"2"
+};
 
 class NewsPage extends StatefulWidget {
   final String subUrl;
@@ -38,14 +48,18 @@ class _NewsPageState extends State<NewsPage> {
   }
 
   void _footerRefresh() async {
-    _page++;
+    _page+=10;
     _loadData();
   }
 
   void _loadData() async {
-    _params["offset"] = "$_page";
-    _params["size"] = "10";
-    await NetworkRequest.requestData(baseUrl+_subUrl, params: _params, headers: headers, success: (data){
+    Map<String, dynamic> totalParams = {};
+    totalParams.addAll(baseParams);
+    totalParams.addAll(_params);
+    totalParams["offset"] = "$_page";
+    totalParams["size"] = "10";
+    totalParams["ts"] = (DateTime.now().millisecondsSinceEpoch ~/ 1000).toString();
+    await NetworkRequest.requestData(baseUrl+_subUrl, params: totalParams, headers: headers, success: (data){
       if(mounted){
         setState(() {
           List listData = data["data"]["items"];
