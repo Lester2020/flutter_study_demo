@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/network/network_request.dart';
 import 'package:flutter_study_demo/third/model/news_model.dart';
+import 'package:flutter_study_demo/third/widgets/news_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 const baseUrl = "https://v6-gw.m.163.com/nc/api/v1/feed/";
@@ -79,7 +80,7 @@ class _NewsPageState extends State<NewsPage> {
       child: ListView.builder(
         itemCount: _dataArray.length,
         itemBuilder: (context, index){
-          return Text("测试数据-$index");
+          return NewsItem(model: _dataArray[index]);
         },
       ),
     );

@@ -37,7 +37,7 @@ class NewsModel {
       return "";
     }
     if(_replyCount! <= 9999){
-      return "$_replyCount!跟帖";
+      return "$_replyCount跟帖";
     } else {
       double _count = _replyCount! / 10000.0;
       return _count.toStringAsFixed(1) + "万跟帖";

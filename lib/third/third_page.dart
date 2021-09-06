@@ -14,7 +14,7 @@ class ThirdPage extends StatefulWidget {
   _ThirdPageState createState() => _ThirdPageState();
 }
 
-class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
+class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
 
   late TabController _controller;
   final List<Map<String, dynamic>> _heads = [
@@ -44,6 +44,7 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return Scaffold(
       backgroundColor: Color(0xfff2f2f2),
       body: Column(
@@ -104,8 +105,14 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
                   ),
                 ),
                 Container(
-                  color: Colors.white,
                   height: 34.0,
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(
+                      color: dividerColor,
+                      width: 0.5
+                    )),
+                    color: bodyColor,
+                  ),
                   child: TabBar(
                     controller: _controller,
                     isScrollable: true,
@@ -140,6 +147,9 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
 
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 

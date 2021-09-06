@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
+import 'package:flutter_study_demo/globe/app_provider.dart';
+
 ///调用的时候需要把hex改一下，比如#223344 needs change to 0xFF223344
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];
@@ -20,6 +22,39 @@ MaterialColor createMaterialColor(Color color) {
     );
   }
   return MaterialColor(color.value, swatch);
+}
+
+/// 主背景颜色
+Color get bodyColor {
+  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && ThemeMode.system == ThemeMode.dark)) {
+    return Colors.black;
+  } else {
+    return Colors.white;
+  }
+}
+
+/// 分割线颜色
+Color get dividerColor {
+  return Colors.grey.shade400.withOpacity(0.3);
+}
+
+/// 文本标题颜色
+Color get mainTextColor {
+  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && ThemeMode.system == ThemeMode.dark)) {
+    return Color(0xffdddddd);
+  } else {
+    return Color(0xff2a2a2a);
+  }
+}
+
+/// 副标题颜色
+Color get subTextColor {
+  return Colors.grey;
+}
+
+/// 主题颜色
+Color get themeColor {
+  return themeColorMap[AppProvider.instance.themeColor] ?? Colors.red;
 }
 
 Map<String, Color> themeColorMap = {
