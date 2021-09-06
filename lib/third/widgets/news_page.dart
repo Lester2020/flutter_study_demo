@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/network/network_request.dart';
+import 'package:flutter_study_demo/third/model/news_model.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 const baseUrl = "https://v6-gw.m.163.com/nc/api/v1/feed/";
 const headers = {
@@ -23,26 +25,63 @@ class NewsPage extends StatefulWidget {
 class _NewsPageState extends State<NewsPage> {
   final String _subUrl;
   final Map<String, dynamic> _params;
+  int _page = 0;
+  List<NewsModel> _dataArray = [];
+  RefreshController _controller = RefreshController(initialRefresh: true);
   _NewsPageState(this._subUrl, this._params);
-  
-  @override
-  void initState() {
-    super.initState();
+
+  void _headerRefresh() async {
+    _page = 0;
+    _dataArray = [];
     _loadData();
   }
-  
-  void _loadData() {
-    NetworkRequest.requestData(baseUrl+_subUrl, params: _params, headers: headers, success: (data){
-      print(data);
+
+  void _footerRefresh() async {
+    _page++;
+    _loadData();
+  }
+
+  void _loadData() async {
+    _params["offset"] = "$_page";
+    _params["size"] = "10";
+    await NetworkRequest.requestData(baseUrl+_subUrl, params: _params, headers: headers, success: (data){
+      if(mounted){
+        setState(() {
+          List listData = data["data"]["items"];
+          for(var dict in listData){
+            NewsModel model = NewsModel.fromJson(dict);
+            _dataArray.add(model);
+          }
+        });
+        if(_page == 0){
+          _controller.refreshCompleted();
+        } else {
+          _controller.loadComplete();
+        }
+      }
+
     }, failed: (int code, String msg){
       print(msg);
+      _controller.refreshCompleted();
     });
   }
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text("测试数据"),
+    return SmartRefresher(
+      controller: _controller,
+      onRefresh: _headerRefresh,
+      onLoading: _footerRefresh,
+      enablePullDown: true,
+      enablePullUp: true,
+      header: WaterDropHeader(),
+      footer: ClassicFooter(),
+      child: ListView.builder(
+        itemCount: _dataArray.length,
+        itemBuilder: (context, index){
+          return Text("测试数据-$index");
+        },
+      ),
     );
   }
 }
