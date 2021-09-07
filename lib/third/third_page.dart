@@ -46,15 +46,15 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      backgroundColor: Color(0xfff2f2f2),
+      backgroundColor: bodyColor,
       body: Column(
         children: [
           Container(
-            height: Global.paddingTop + 86,
+            height: Global.paddingTop + 90,
             child: Column(
               children: [
                 Container(
-                  height: Global.paddingTop + 52,
+                  height: Global.paddingTop + 56,
                   color: themeColorMap[AppProvider.instance.themeColor],
                   child: Container(
                     margin: EdgeInsets.only(top: Global.paddingTop),
@@ -64,21 +64,21 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
                       children: [
                         Expanded(
                           child: Container(
-                            height: 36,
+                            height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(18),
+                              color: getColor(Colors.white, Colors.black),
+                              borderRadius: BorderRadius.circular(20),
                             ),
                             padding: EdgeInsets.only(left: 10, right: 10),
                             alignment: Alignment.centerLeft,
                             child: Row(
                               children: [
-                                Icon(Icons.search, size: 22, color: Color(0xff1a1a1a).withOpacity(0.8)),
+                                Icon(Icons.search, size: 22, color: getColor(Color(0xff1a1a1a), Color(0xfff5f5f5)).withOpacity(0.8)),
                                 SizedBox(width: 1),
                                 Text(
                                     "2021全国两会召开 | 抗日奇侠电视剧",
                                   style: TextStyle(
-                                    color: Color(0xff1a1a1a),
+                                    color: getColor(Color(0xff1a1a1a), Color(0xfff5f5f5)),
                                     fontSize: 15,
                                   ),
                                   overflow: TextOverflow.ellipsis,
@@ -121,7 +121,8 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
                         text: dict["title"].toString()
                       );
                     }).toList(),
-                    labelColor: Colors.black,
+                    labelColor: titleColor,
+                    unselectedLabelColor: titleColor.withOpacity(0.75),
                     labelPadding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                     indicator: CustomUnderlineTabIndicator(
                       insets: EdgeInsets.fromLTRB(5, 0, 5, 2),

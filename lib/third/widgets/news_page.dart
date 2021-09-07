@@ -33,7 +33,7 @@ class NewsPage extends StatefulWidget {
   _NewsPageState createState() => _NewsPageState(subUrl, params);
 }
 
-class _NewsPageState extends State<NewsPage> {
+class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin {
   final String _subUrl;
   final Map<String, dynamic> _params;
   int _page = 0;
@@ -61,6 +61,7 @@ class _NewsPageState extends State<NewsPage> {
     totalParams["ts"] = (DateTime.now().millisecondsSinceEpoch ~/ 1000).toString();
     await NetworkRequest.requestData(baseUrl+_subUrl, params: totalParams, headers: headers, success: (data){
       if(mounted){
+        // print(data);
         setState(() {
           List listData = data["data"]["items"];
           for(var dict in listData){
@@ -83,6 +84,7 @@ class _NewsPageState extends State<NewsPage> {
   
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     return SmartRefresher(
       controller: _controller,
       onRefresh: _headerRefresh,
@@ -99,4 +101,7 @@ class _NewsPageState extends State<NewsPage> {
       ),
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }

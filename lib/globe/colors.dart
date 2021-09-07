@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
-
 import 'package:flutter_study_demo/globe/app_provider.dart';
+import 'package:flutter_study_demo/globe/global.dart';
 
 ///调用的时候需要把hex改一下，比如#223344 needs change to 0xFF223344
 MaterialColor createMaterialColor(Color color) {
@@ -26,10 +26,28 @@ MaterialColor createMaterialColor(Color color) {
 
 /// 主背景颜色
 Color get bodyColor {
-  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && ThemeMode.system == ThemeMode.dark)) {
+  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
     return Colors.black;
   } else {
     return Colors.white;
+  }
+}
+
+/// 获取颜色
+Color getColor(Color lightColor, Color darkColor){
+  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
+    return darkColor;
+  } else {
+    return lightColor;
+  }
+}
+
+/// 标题颜色
+Color get titleColor {
+  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
+    return Colors.white;
+  } else {
+    return Colors.black;
   }
 }
 
@@ -40,7 +58,7 @@ Color get dividerColor {
 
 /// 文本标题颜色
 Color get mainTextColor {
-  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && ThemeMode.system == ThemeMode.dark)) {
+  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
     return Color(0xffdddddd);
   } else {
     return Color(0xff2a2a2a);
