@@ -143,6 +143,10 @@ flutter:
     - family: Agne
       fonts:
         - asset: fonts/Agne.otf
+
+    - family: iconfont
+      fonts:
+        - asset: fonts/iconfont.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

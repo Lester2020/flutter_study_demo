@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study_demo/generated/l10n.dart';
+import 'package:flutter_study_demo/globe/custom_icon.dart';
 import 'package:flutter_study_demo/globe/user_event.dart';
 import 'package:flutter_study_demo/home/pages/home_page.dart';
 import 'package:flutter_study_demo/third/draw_page.dart';
@@ -18,7 +19,9 @@ class TabsPage extends StatefulWidget {
 
 class _TabsPageState extends State<TabsPage> {
   int _index = 0;
-  final List<String> _imageNames = ["new_home_tabbar", "new_video_tabbar", "new_long_video_tabbar", "new_mine_tabbar"];
+  // final List<String> _imageNames = ["new_home_tabbar", "new_video_tabbar", "new_long_video_tabbar", "new_mine_tabbar"];
+  final List<IconData> _normalTabs = [CustomIcon.home, CustomIcon.video, CustomIcon.category, CustomIcon.mine];
+  final List<IconData> _selectTabs = [CustomIcon.homeFill, CustomIcon.videoFill, CustomIcon.categoryFill, CustomIcon.mineFill];
   final Color _themeColor = const Color.fromRGBO(237, 67, 71, 1.0);
   final Color _unselectedColor = const Color.fromRGBO(34, 34, 34, 1.0);
   final PageController _controller = PageController(initialPage: 0);
@@ -28,13 +31,16 @@ class _TabsPageState extends State<TabsPage> {
   List<BottomNavigationBarItem> _getItems(BuildContext context) {
     List<BottomNavigationBarItem> items = [];
     List<String> _titles = [S.of(context).home, S.of(context).travel, S.of(context).category, S.of(context).mine];
-    int count = min(_titles.length, _imageNames.length);
+    int count = min(_titles.length, _normalTabs.length);
     for (int i = 0; i < count; i++) {
-      String imageName = _imageNames[i];
+      // String imageName = _imageNames[i];
       BottomNavigationBarItem item = BottomNavigationBarItem(
-          icon: Image.asset("images/$imageName.png", fit: BoxFit.cover, width: 24, height: 24,),
-          activeIcon: Image.asset("images/${imageName}_press.png", fit: BoxFit.cover, width: 24, height: 24),
-          label: _titles[i]
+          // icon: Image.asset("images/$imageName.png", fit: BoxFit.cover, width: 24, height: 24),
+          // activeIcon: Image.asset("images/${imageName}_press.png", fit: BoxFit.cover, width: 24, height: 24),
+        ///因为不同主题需要显示不一样的icon，所以这里使用系统icon，也可以使用自定义icon
+          icon: Icon(_normalTabs[i]),
+          activeIcon: Icon(_selectTabs[i]),
+          label: _titles[i],
       );
       items.add(item);
     }
