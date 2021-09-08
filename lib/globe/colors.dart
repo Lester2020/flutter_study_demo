@@ -24,55 +24,9 @@ MaterialColor createMaterialColor(Color color) {
   return MaterialColor(color.value, swatch);
 }
 
-/// 主背景颜色
-Color get bodyColor {
-  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
-    return Colors.black;
-  } else {
-    return Colors.white;
-  }
-}
-
-/// 获取颜色
-Color getColor(Color lightColor, Color darkColor){
-  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
-    return darkColor;
-  } else {
-    return lightColor;
-  }
-}
-
-/// 标题颜色
-Color get titleColor {
-  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
-    return Colors.white;
-  } else {
-    return Colors.black;
-  }
-}
-
 /// 分割线颜色
 Color get dividerColor {
   return Colors.grey.shade400.withOpacity(0.3);
-}
-
-/// 文本标题颜色
-Color get mainTextColor {
-  if(AppProvider.instance.darkMode == 1 || (AppProvider.instance.darkMode == 2 && Global.isDarkMode)) {
-    return Color(0xffdddddd);
-  } else {
-    return Color(0xff2a2a2a);
-  }
-}
-
-/// 副标题颜色
-Color get subTextColor {
-  return Colors.grey;
-}
-
-/// 主题颜色
-Color get themeColor {
-  return themeColorMap[AppProvider.instance.themeColor] ?? Colors.red;
 }
 
 Map<String, Color> themeColorMap = {

@@ -23,9 +23,7 @@ class AppTheme {
   }
 
   static ThemeData _getThemeData(AppProvider provider, bool isDark) {
-    Color mainColor = isDark
-        ? Colors.black
-        : (themeColorMap[provider.themeColor] ??
+    Color mainColor = (themeColorMap[provider.themeColor] ??
             const Color.fromRGBO(237, 67, 71, 1.0));
     ///下面这些颜色特性，可以在子组件里面重新设置而覆盖这里的设置，比方某个页面的导航栏颜色
     ///在APPBar里面重新设置backgroundColor就覆盖这里的全局设置
@@ -34,14 +32,11 @@ class AppTheme {
 
         ///主色，决定导航栏颜色,如果是系统自带的颜色属性，可以使用primaryColor
         primaryColor: mainColor,
-
         ///但是有些颜色在primaryColor中是不适用的,推荐第二种方法primarySwatch
         primarySwatch: createMaterialColor(mainColor),
-
         ///Icon的默认样式
         iconTheme: const IconThemeData(
             size: 32.0, color: Color(0xFFFAFAFA), opacity: 1.0),
-
         ///导航栏按钮颜色
         primaryIconTheme: const IconThemeData(color: Color(0xFFFFFFFF)),
 
@@ -52,11 +47,12 @@ class AppTheme {
 
           ///比如：ListTile.title
           subtitle1: TextStyle(color: isDark ? Colors.white : Colors.black),
-          subtitle2: TextStyle(color: isDark ? Colors.white70 : Colors.black87),
+          subtitle2: TextStyle(color: Colors.grey, fontSize: 12),
 
-          ///页面文字
-          bodyText1: TextStyle(color: isDark ? Colors.white : Colors.black),
-          bodyText2: TextStyle(color: isDark ? Colors.white : Colors.black),
+          ///页面主标题文字
+          bodyText1: TextStyle(color: isDark ? Color(0xffdddddd) : Color(0xff2a2a2a), fontSize: 18),
+
+          bodyText2: TextStyle(color: isDark ? Color(0xfff5f5f5) : Color(0xff1a1a1a), fontSize: 15),
 
           ///[ElevatedButton], [TextButton] and [OutlinedButton]文字颜色
           button: TextStyle(color: isDark ? Colors.white : Colors.black),
@@ -66,7 +62,6 @@ class AppTheme {
 
         ///页面背景色
         scaffoldBackgroundColor: isDark ? Colors.black : Colors.white,
-
         ///主要用于Material背景色
         canvasColor: isDark ? Colors.black : Colors.white,
         inputDecorationTheme: InputDecorationTheme(
@@ -77,10 +72,11 @@ class AppTheme {
 
         ///分割线样式
         dividerTheme: DividerThemeData(
-            color: isDark ? Colors.white70 : Colors.black54,
+            color: Colors.grey.shade400.withOpacity(0.3),
             space: 0.6,
-            thickness: 0.6),
-        backgroundColor: isDark ? Colors.white : Colors.black,
+            thickness: 0.6
+        ),
+        backgroundColor: isDark ? Colors.black : Colors.white,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: isDark ? const Color(0xff262626) : Colors.white,
           selectedItemColor: const Color.fromRGBO(237, 67, 71, 1.0),

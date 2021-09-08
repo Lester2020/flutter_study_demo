@@ -46,7 +46,6 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
   Widget build(BuildContext context) {
     super.build(context);
     return Scaffold(
-      backgroundColor: bodyColor,
       body: Column(
         children: [
           Container(
@@ -66,21 +65,18 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
                           child: Container(
                             height: 40,
                             decoration: BoxDecoration(
-                              color: getColor(Colors.white, Colors.black),
+                              color: Theme.of(context).backgroundColor,
                               borderRadius: BorderRadius.circular(20),
                             ),
                             padding: EdgeInsets.only(left: 10, right: 10),
                             alignment: Alignment.centerLeft,
                             child: Row(
                               children: [
-                                Icon(Icons.search, size: 22, color: getColor(Color(0xff1a1a1a), Color(0xfff5f5f5)).withOpacity(0.8)),
+                                Icon(Icons.search, size: 22, color: Theme.of(context).textTheme.bodyText2!.color!.withOpacity(0.8)),
                                 SizedBox(width: 1),
                                 Text(
                                     "2021全国两会召开 | 抗日奇侠电视剧",
-                                  style: TextStyle(
-                                    color: getColor(Color(0xff1a1a1a), Color(0xfff5f5f5)),
-                                    fontSize: 15,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                   overflow: TextOverflow.ellipsis,
                                 )
                               ],
@@ -111,7 +107,7 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
                       color: dividerColor,
                       width: 0.5
                     )),
-                    color: bodyColor,
+                    color: Theme.of(context).backgroundColor,
                   ),
                   child: TabBar(
                     controller: _controller,
@@ -121,8 +117,8 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
                         text: dict["title"].toString()
                       );
                     }).toList(),
-                    labelColor: titleColor,
-                    unselectedLabelColor: titleColor.withOpacity(0.75),
+                    labelColor: Theme.of(context).textTheme.bodyText1?.color,
+                    unselectedLabelColor: Theme.of(context).textTheme.bodyText1?.color?.withOpacity(0.75),
                     labelPadding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                     indicator: CustomUnderlineTabIndicator(
                       insets: EdgeInsets.fromLTRB(5, 0, 5, 2),

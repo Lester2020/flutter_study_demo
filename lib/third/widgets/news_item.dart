@@ -18,7 +18,7 @@ class _NewsItemState extends State<NewsItem> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-      color: bodyColor,
+      color: Theme.of(context).backgroundColor,
       child: Container(
           padding: EdgeInsets.only(top: 10, bottom: 10),
           decoration: BoxDecoration(
@@ -67,10 +67,7 @@ class _NewsItemState extends State<NewsItem> {
   _titleItem() {
     return Text(
       widget.model?.title??"这是一条未知类型的新闻",
-      style: TextStyle(
-        fontSize: 18,
-        color: mainTextColor,
-      ),
+      style: Theme.of(context).textTheme.bodyText1,
       maxLines: 2,
       overflow: TextOverflow.ellipsis,
     );
@@ -84,18 +81,12 @@ class _NewsItemState extends State<NewsItem> {
         SizedBox(width: widget.model?.tagList != null ? 10 : 0),
         Text(
           widget.model?.source??"未知来源",
-          style: TextStyle(
-              fontSize: 12,
-              color: subTextColor
-          ),
+          style: Theme.of(context).textTheme.subtitle2,
         ),
         SizedBox(width: 10),
         Text(
           widget.model?.replyCountStr ?? "",
-          style: TextStyle(
-              fontSize: 12,
-              color: subTextColor
-          ),
+          style: Theme.of(context).textTheme.subtitle2,
         ),
         ///撑满剩余空间
         Spacer(),
@@ -116,7 +107,7 @@ class _NewsItemState extends State<NewsItem> {
           "×",
           style: TextStyle(
               fontSize: 17,
-              color: subTextColor.withOpacity(0.7)
+              color: Theme.of(context).textTheme.subtitle2?.color?.withOpacity(0.7)
           ),
         ),
       );
@@ -129,7 +120,7 @@ class _NewsItemState extends State<NewsItem> {
         widget.model?.tagList?.first.text ?? "",
         style: TextStyle(
             fontSize: 12,
-            color: themeColor
+            color: Theme.of(context).primaryColor
         ),
       );
     } else {
