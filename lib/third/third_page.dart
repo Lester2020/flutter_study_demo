@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_study_demo/globe/app_provider.dart';
 import 'package:flutter_study_demo/globe/colors.dart';
 import 'package:flutter_study_demo/globe/global.dart';
@@ -33,6 +35,7 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
   @override
   void initState() {
     super.initState();
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     _controller = TabController(length: _heads.length, vsync: this);
   }
 
@@ -45,19 +48,20 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
   @override
   Widget build(BuildContext context) {
     super.build(context);
+    EdgeInsets safePadding = MediaQuery.of(context).padding;
     return Scaffold(
       body: Column(
         children: [
           Container(
-            height: Global.paddingTop + 90,
+            height: safePadding.top + 90,
             child: Column(
               children: [
                 Container(
-                  height: Global.paddingTop + 56,
+                  height: safePadding.top + 56,
                   color: themeColorMap[AppProvider.instance.themeColor],
                   child: Container(
-                    margin: EdgeInsets.only(top: Global.paddingTop),
-                    padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                    margin: EdgeInsets.only(top: safePadding.top),
+                    padding: EdgeInsets.fromLTRB(max(safePadding.left, 16), 0, max(safePadding.right, 16), 0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [

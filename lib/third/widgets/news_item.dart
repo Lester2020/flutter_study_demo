@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study_demo/globe/colors.dart';
 import 'package:flutter_study_demo/globe/global.dart';
 import 'package:flutter_study_demo/third/model/news_model.dart';
+import 'package:flutter_study_demo/third/widgets/news_detail_page.dart';
 
 class NewsItem extends StatefulWidget {
   final NewsModel? model;
@@ -16,19 +17,26 @@ class _NewsItemState extends State<NewsItem> {
   
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
-      color: Theme.of(context).backgroundColor,
+    return GestureDetector(
+      onTap: (){
+        Navigator.of(context).push(MaterialPageRoute(builder: (context){
+          return NewsDetailPage();
+        }));
+      },
       child: Container(
-          padding: EdgeInsets.only(top: 10, bottom: 10),
-          decoration: BoxDecoration(
-            border: Border(
-                bottom: BorderSide(
-              color: dividerColor,
-              width: 0.5,
-            )),
-          ),
-          child: _newsItems()),
+        padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+        color: Theme.of(context).backgroundColor,
+        child: Container(
+            padding: EdgeInsets.only(top: 10, bottom: 10),
+            decoration: BoxDecoration(
+              border: Border(
+                  bottom: BorderSide(
+                    color: dividerColor,
+                    width: 0.5,
+                  )),
+            ),
+            child: _newsItems()),
+      ),
     );
   }
 
