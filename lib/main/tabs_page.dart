@@ -58,7 +58,7 @@ class _TabsPageState extends State<TabsPage> {
           _controller.jumpToPage(index);
           setState(() {
             _index = index;
-            if(index == 0 || index == 1) {
+            if(index == 1 || index == 2) {
               SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
             } else {
               SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
@@ -78,14 +78,14 @@ class _TabsPageState extends State<TabsPage> {
         //禁止pageView滚动
         physics: const NeverScrollableScrollPhysics(),
         children: const [
+          ThirdPage(),
           HomePage(),
           TravelPage(),
           BasicPage(),
-          ThirdPage()
         ],
       ),
       ///抽屉
-      drawer: _index == 2 ? DrawPage() : null,
+      drawer: _index == 3 ? DrawPage() : null,
     );
   }
 

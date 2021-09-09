@@ -15,6 +15,7 @@ import 'package:flutter_study_demo/basic/demo/transform_demo_page.dart';
 import 'package:flutter_study_demo/basic/inherited/inherited_widget_file.dart';
 import 'package:flutter_study_demo/basic/stick/stick_demo_page.dart';
 import 'package:flutter_study_demo/basic/third/photos_file.dart';
+import 'package:flutter_study_demo/basic/third/webview_html_page.dart';
 import 'package:flutter_study_demo/basic/widgets/alert_dialog_file.dart';
 import 'package:flutter_study_demo/basic/widgets/aspectratio_file.dart';
 import 'package:flutter_study_demo/basic/widgets/button_file.dart';
@@ -179,4 +180,5 @@ Map<String, Widget> itemRouters = {
   "异步组件-FutureBuilder" : const FutureBuilderFile(),
   "数据共享-InheritedWidget" : const InheritedWidgetFile(),
   "三方插件—访问原生相册" : const PhotosFile(),
+  "三方插件-WebView加载HTML" : const WebViewHtmlPage(),
 };

@@ -122,7 +122,7 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, Au
                     labelPadding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                     indicator: CustomUnderlineTabIndicator(
                       insets: EdgeInsets.fromLTRB(5, 0, 5, 2),
-                      borderSide: BorderSide(color: themeColorMap[AppProvider.instance.themeColor]!, width: 3),
+                      borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 3),
                     ),
                     labelStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
                     unselectedLabelStyle: TextStyle(fontSize: 17),

@@ -58,7 +58,7 @@ class AppTheme {
           ///页面主标题文字
           bodyText1: TextStyle(
               color: isDark ? Color(0xffdddddd) : Color(0xff2a2a2a),
-              fontSize: 18),
+              fontSize: 18, fontWeight: FontWeight.normal),
 
           bodyText2: TextStyle(
               color: isDark ? Color(0xfff5f5f5) : Color(0xff1a1a1a),
