@@ -20,7 +20,7 @@ class _NewsItemState extends State<NewsItem> {
     return GestureDetector(
       onTap: (){
         Navigator.of(context).push(MaterialPageRoute(builder: (context){
-          return NewsDetailPage();
+          return NewsDetailPage(docId: widget.model?.docid ?? "");
         }));
       },
       child: Container(
