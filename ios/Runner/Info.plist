@@ -49,5 +49,10 @@
 	<string>访问相机</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>使用麦克风</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

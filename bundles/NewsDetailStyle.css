@@ -1,0 +1,96 @@
+/* you can use this or put a meta color-scheme in your HTML
+ to support light and dark mode */
+
+:root {
+    color-scheme: light dark; /* enable light and dark mode compatibility */
+    supported-color-schemes: light dark; /* enable light and dark mode */
+    /* font: -apple-system-body; uncomment to use Apple system font */
+    font-size:16px;
+}
+
+body {
+    text-align:left;
+    font-size:18px;
+    color:#2a2a2a;
+    margin-left:16px;
+    margin-right:16px;
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.title {
+    text-align:left;
+    font-size:24px;
+    font-weight:bold;
+    color:#2a2a2a;
+}
+
+.source-info {
+    margin-bottom:20px;
+}
+
+.img-source {
+    float:left;
+    width:36px;
+    height:36px;
+    border-radius:20px;
+    border-width:0.5px;
+    border-style:solid;
+    border-color:lightgray;
+    background:lightgray;
+}
+
+.source {
+    text-align:left;
+    font-size:16px;
+    color:#2a2a2a;
+    margin-top:10px;
+}
+
+.time {
+    text-align:left;
+    font-size:14px;
+    color:gray;
+    margin-top:0.5px;
+    margin-bottom:7px;
+}
+
+.img-parent {
+    text-align:center;
+    margin-bottom:10px;
+}
+
+/* media query for dark mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        text-align:left;
+        font-size:18px;
+        color:#dddddd;
+        margin-left:16px;
+        margin-right:16px;
+        margin-bottom:10px;
+        margin-top:10px;
+    }
+    
+    .title {
+        text-align:left;
+        font-size:24px;
+        font-weight:bold;
+        color:#dddddd;
+    }
+    
+    .source {
+        text-align:left;
+        font-size:16px;
+        color:#dddddd;
+        margin-top:10px;
+    }
+    
+    .time {
+        color:lightgray;
+        text-align:left;
+        font-size:14px;
+        margin-top:0.5px;
+        margin-bottom:7px;
+    }
+}

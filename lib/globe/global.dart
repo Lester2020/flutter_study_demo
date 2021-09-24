@@ -11,4 +11,6 @@ class Global {
   static double paddingBottom = mediaQueryData.padding.bottom;
   static bool isLandscape = (mediaQueryData.orientation == Orientation.landscape);
 
+  ///判断跟随系统模式当前是不是暗黑模式
+  static bool isDarkMode = (window.platformBrightness == Brightness.dark) ? true : false;
 }

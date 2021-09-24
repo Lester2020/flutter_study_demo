@@ -3,18 +3,20 @@ import 'package:flutter_study_demo/globe/app_provider.dart';
 import 'package:flutter_study_demo/globe/colors.dart';
 
 class AppTheme {
-
   static getThemeData(AppProvider provider, bool isDark) {
-    if(provider.darkMode == 2) {/// 跟随系统
+    if (provider.darkMode == 2) {
+      /// 跟随系统
       return _getThemeData(provider, isDark);
-    } else if(provider.darkMode == 1) {/// 手动暗黑模式
-      if(isDark) {
+    } else if (provider.darkMode == 1) {
+      /// 手动暗黑模式
+      if (isDark) {
         return null;
       } else {
         return _getThemeData(provider, true);
       }
-    } else {/// 手动白天模式
-      if(isDark) {
+    } else {
+      /// 手动白天模式
+      if (isDark) {
         return null;
       } else {
         return _getThemeData(provider, false);
@@ -23,10 +25,9 @@ class AppTheme {
   }
 
   static ThemeData _getThemeData(AppProvider provider, bool isDark) {
-    Color mainColor = isDark
-        ? Colors.black
-        : (themeColorMap[provider.themeColor] ??
-            const Color.fromRGBO(237, 67, 71, 1.0));
+    Color mainColor = (themeColorMap[provider.themeColor] ??
+        const Color.fromRGBO(237, 67, 71, 1.0));
+
     ///下面这些颜色特性，可以在子组件里面重新设置而覆盖这里的设置，比方某个页面的导航栏颜色
     ///在APPBar里面重新设置backgroundColor就覆盖这里的全局设置
 
@@ -52,15 +53,21 @@ class AppTheme {
 
           ///比如：ListTile.title
           subtitle1: TextStyle(color: isDark ? Colors.white : Colors.black),
-          subtitle2: TextStyle(color: isDark ? Colors.white70 : Colors.black87),
+          subtitle2: TextStyle(color: Colors.grey, fontSize: 12),
 
-          ///页面文字
-          bodyText1: TextStyle(color: isDark ? Colors.white : Colors.black),
-          bodyText2: TextStyle(color: isDark ? Colors.white : Colors.black),
+          ///页面主标题文字
+          bodyText1: TextStyle(
+              color: isDark ? Color(0xffdddddd) : Color(0xff2a2a2a),
+              fontSize: 18, fontWeight: FontWeight.normal),
+
+          bodyText2: TextStyle(
+              color: isDark ? Color(0xfff5f5f5) : Color(0xff1a1a1a),
+              fontSize: 15),
 
           ///[ElevatedButton], [TextButton] and [OutlinedButton]文字颜色
           button: TextStyle(color: isDark ? Colors.white : Colors.black),
         ),
+
         ///设置状态栏模式
         brightness: isDark ? Brightness.dark : Brightness.light,
 
@@ -77,29 +84,30 @@ class AppTheme {
 
         ///分割线样式
         dividerTheme: DividerThemeData(
-            color: isDark ? Colors.white70 : Colors.black54,
+            color: Colors.grey.shade400.withOpacity(0.3),
             space: 0.6,
             thickness: 0.6),
-        backgroundColor: isDark ? Colors.white : Colors.black,
+        backgroundColor: isDark ? Colors.black : Colors.white,
         bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: isDark ? const Color(0xff262626) : Colors.white,
-          selectedItemColor: const Color.fromRGBO(237, 67, 71, 1.0),
-          unselectedItemColor:
-              isDark ? const Color(0xfff5f5f5) : const Color(0xff222222),
-          selectedLabelStyle: TextStyle(fontSize: 12),
-          unselectedLabelStyle: TextStyle(fontSize: 12),
-          showSelectedLabels: true,
-          showUnselectedLabels: true
-        ),
-      appBarTheme: AppBarTheme(
-        ///这是整体设置，如果页面需要单独设置只需要在AppBar组件中设置即可
-        brightness: Brightness.dark,
-        centerTitle: true,
-        textTheme: TextTheme(
-          headline6: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
-        )
-      )
-    );
+            backgroundColor: isDark ? const Color(0xff262626) : Colors.white,
+            selectedItemColor: mainColor,
+            unselectedItemColor:
+                isDark ? const Color(0xfff5f5f5) : const Color(0xff222222),
+            selectedLabelStyle: TextStyle(fontSize: 12),
+            unselectedLabelStyle: TextStyle(fontSize: 12),
+            showSelectedLabels: true,
+            showUnselectedLabels: true),
+        appBarTheme: AppBarTheme(
+
+            ///这是整体设置，如果页面需要单独设置只需要在AppBar组件中设置即可
+            brightness: Brightness.dark,
+            centerTitle: true,
+            textTheme: TextTheme(
+              headline6: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold),
+            )));
   }
 }
 /**

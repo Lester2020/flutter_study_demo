@@ -11,9 +11,14 @@
 - 全局设置主题颜色样式；
 - 手动自动设置白天/暗黑模式；
 - 网络dio请求的简单封装
+- 仿写今日头条首页的新闻列表
+- 下载iconfont来实现自定义iconData
+- 基于webview加载新闻HTML
+- 新闻详情添加CSS和JS结合使用
 
+## 温馨提示：
+-部分页面的接口通过抓包获取的，仅用于学习使用，请勿适用于任何商业用途。
+-部分自定义iconData来自于icondata素材库
 
 ## 图片预览
-  ![screen](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/flutter_screen.gif) | ![home](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/001.jpg)
-  ![travel](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/002.jpg) | ![category](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/003.jpg)
-  ![mine](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/004.jpg) | [mine](https://github.com/Lester2020/VideoFilterDemo/blob/main/thumb/005.jpg)
+  ![screen](https://github.com/Lester2020/NotebookDemo/blob/main/screen_1.gif)

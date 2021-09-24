@@ -1,6 +1,8 @@
+import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_study_demo/globe/app_provider.dart';
 import 'package:flutter_study_demo/globe/colors.dart';
 import 'package:flutter_study_demo/globe/global.dart';
@@ -14,7 +16,7 @@ class ThirdPage extends StatefulWidget {
   _ThirdPageState createState() => _ThirdPageState();
 }
 
-class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
+class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin, AutomaticKeepAliveClientMixin {
 
   late TabController _controller;
   final List<Map<String, dynamic>> _heads = [
@@ -33,6 +35,7 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
     _controller = TabController(length: _heads.length, vsync: this);
   }
 
@@ -44,42 +47,40 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    super.build(context);
+    EdgeInsets safePadding = MediaQuery.of(context).padding;
     return Scaffold(
-      backgroundColor: Color(0xfff2f2f2),
       body: Column(
         children: [
           Container(
-            height: Global.paddingTop + 86,
+            height: safePadding.top + 90,
             child: Column(
               children: [
                 Container(
-                  height: Global.paddingTop + 52,
+                  height: safePadding.top + 56,
                   color: themeColorMap[AppProvider.instance.themeColor],
                   child: Container(
-                    margin: EdgeInsets.only(top: Global.paddingTop),
-                    padding: EdgeInsets.fromLTRB(16, 0, 16, 0),
+                    margin: EdgeInsets.only(top: safePadding.top),
+                    padding: EdgeInsets.fromLTRB(max(safePadding.left, 16), 0, max(safePadding.right, 16), 0),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Expanded(
                           child: Container(
-                            height: 36,
+                            height: 40,
                             decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(18),
+                              color: Theme.of(context).backgroundColor,
+                              borderRadius: BorderRadius.circular(20),
                             ),
                             padding: EdgeInsets.only(left: 10, right: 10),
                             alignment: Alignment.centerLeft,
                             child: Row(
                               children: [
-                                Icon(Icons.search, size: 22, color: Color(0xff1a1a1a).withOpacity(0.8)),
+                                Icon(Icons.search, size: 22, color: Theme.of(context).textTheme.bodyText2!.color!.withOpacity(0.8)),
                                 SizedBox(width: 1),
                                 Text(
                                     "2021全国两会召开 | 抗日奇侠电视剧",
-                                  style: TextStyle(
-                                    color: Color(0xff1a1a1a),
-                                    fontSize: 15,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyText2,
                                   overflow: TextOverflow.ellipsis,
                                 )
                               ],
@@ -104,8 +105,14 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
                   ),
                 ),
                 Container(
-                  color: Colors.white,
                   height: 34.0,
+                  decoration: BoxDecoration(
+                    border: Border(bottom: BorderSide(
+                      color: dividerColor,
+                      width: 0.5
+                    )),
+                    color: Theme.of(context).backgroundColor,
+                  ),
                   child: TabBar(
                     controller: _controller,
                     isScrollable: true,
@@ -114,11 +121,12 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
                         text: dict["title"].toString()
                       );
                     }).toList(),
-                    labelColor: Colors.black,
+                    labelColor: Theme.of(context).textTheme.bodyText1?.color,
+                    unselectedLabelColor: Theme.of(context).textTheme.bodyText1?.color?.withOpacity(0.75),
                     labelPadding: EdgeInsets.fromLTRB(8, 0, 8, 0),
                     indicator: CustomUnderlineTabIndicator(
                       insets: EdgeInsets.fromLTRB(5, 0, 5, 2),
-                      borderSide: BorderSide(color: themeColorMap[AppProvider.instance.themeColor]!, width: 3),
+                      borderSide: BorderSide(color: Theme.of(context).primaryColor, width: 3),
                     ),
                     labelStyle: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
                     unselectedLabelStyle: TextStyle(fontSize: 17),
@@ -140,6 +148,9 @@ class _ThirdPageState extends State<ThirdPage> with TickerProviderStateMixin {
 
     );
   }
+
+  @override
+  bool get wantKeepAlive => true;
 }
 
 

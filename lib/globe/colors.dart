@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'package:flutter_study_demo/globe/app_provider.dart';
+import 'package:flutter_study_demo/globe/global.dart';
 
 ///调用的时候需要把hex改一下，比如#223344 needs change to 0xFF223344
 MaterialColor createMaterialColor(Color color) {
@@ -20,6 +22,11 @@ MaterialColor createMaterialColor(Color color) {
     );
   }
   return MaterialColor(color.value, swatch);
+}
+
+/// 分割线颜色
+Color get dividerColor {
+  return Colors.grey.shade400.withOpacity(0.3);
 }
 
 Map<String, Color> themeColorMap = {
