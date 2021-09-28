@@ -56,6 +56,8 @@ dependencies:
   pull_to_refresh: ^2.0.0
   #格式化
   sprintf: ^6.0.0
+  #toast提示
+  fluttertoast: ^8.0.8
 
 dev_dependencies:
   flutter_test:
