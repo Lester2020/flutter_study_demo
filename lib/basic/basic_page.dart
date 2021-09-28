@@ -13,6 +13,7 @@ import 'package:flutter_study_demo/basic/demo/blur_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/keybord_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/transform_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/widget_layout_demo1.dart';
+import 'package:flutter_study_demo/basic/demo/widget_layout_demo2.dart';
 import 'package:flutter_study_demo/basic/inherited/inherited_widget_file.dart';
 import 'package:flutter_study_demo/basic/stick/stick_demo_page.dart';
 import 'package:flutter_study_demo/basic/third/photos_file.dart';
@@ -182,5 +183,6 @@ Map<String, Widget> itemRouters = {
   "数据共享-InheritedWidget" : const InheritedWidgetFile(),
   "三方插件—访问原生相册" : const PhotosFile(),
   "三方插件-WebView加载HTML" : const WebViewHtmlPage(),
-  "布局练习1" : const PitLayoutDemo()
+  "布局练习1" : const PitLayoutDemo(),
+  "布局练习2" : const CreditCardDemo(),
 };

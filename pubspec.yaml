@@ -111,6 +111,7 @@ flutter:
       - images/ic_theme.png
       - images/icon_publish.png
       - images/player_pause_icon.png
+      - images/bank_zs.png
       - bundles/NewsDetailStyle.css
       - bundles/NewsDetailUtils.js
 
@@ -149,6 +150,10 @@ flutter:
     - family: iconfont
       fonts:
         - asset: fonts/iconfont.ttf
+
+    - family: Farrington
+      fonts:
+        - asset: fonts/Farrington-7B.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
