@@ -153,6 +153,10 @@ flutter:
       fonts:
         - asset: fonts/iconfont.ttf
 
+    - family: customIconfont
+      fonts:
+       - asset: fonts/CustomIconFont.ttf
+
     - family: Farrington
       fonts:
         - asset: fonts/Farrington-7B.ttf
