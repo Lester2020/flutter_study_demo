@@ -15,6 +15,7 @@ import 'package:flutter_study_demo/basic/demo/transform_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/widget_layout_demo1.dart';
 import 'package:flutter_study_demo/basic/demo/widget_layout_demo2.dart';
 import 'package:flutter_study_demo/basic/inherited/inherited_widget_file.dart';
+import 'package:flutter_study_demo/basic/list_view/list_view_bulider_demo.dart';
 import 'package:flutter_study_demo/basic/list_view/list_view_refresh_demo.dart';
 import 'package:flutter_study_demo/basic/list_view/pull_down_refresh_demo.dart';
 import 'package:flutter_study_demo/basic/list_view/pull_up_refresh_demo.dart';
@@ -191,4 +192,5 @@ Map<String, Widget> itemRouters = {
   '下拉刷新练习' : const PullDownRefreshDemo(),
   '上拉刷新练习' : const PullUpRefreshDemo(),
   'ListView刷新练习' : const ListViewRefreshDemo(),
+  'ListView Builder用法' : const ListViewBuilderDemo(),
 };
