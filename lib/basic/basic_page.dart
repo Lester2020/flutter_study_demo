@@ -14,7 +14,9 @@ import 'package:flutter_study_demo/basic/demo/keybord_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/transform_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/widget_layout_demo1.dart';
 import 'package:flutter_study_demo/basic/demo/widget_layout_demo2.dart';
+import 'package:flutter_study_demo/basic/grid_view/grid_view_builder_demo.dart';
 import 'package:flutter_study_demo/basic/grid_view/grid_view_count_demo.dart';
+import 'package:flutter_study_demo/basic/grid_view/grid_view_refresh_demo.dart';
 import 'package:flutter_study_demo/basic/inherited/inherited_widget_file.dart';
 import 'package:flutter_study_demo/basic/list_view/list_view_bulider_demo.dart';
 import 'package:flutter_study_demo/basic/list_view/list_view_refresh_demo.dart';
@@ -197,4 +199,6 @@ Map<String, Widget> itemRouters = {
   'ListView Builder用法' : const ListViewBuilderDemo(),
   'ListView Separated用法' : const ListViewSeparatedDemo(),
   'GridView Count用法' : const GridViewCountDemo(),
+  'GridView Builder用法' : const GridViewBuilderDemo(),
+  'GridView刷新练习' : const GridViewRefreshDemo(),
 };

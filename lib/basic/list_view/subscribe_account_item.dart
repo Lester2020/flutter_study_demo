@@ -158,10 +158,25 @@ class SubscribeAccountItem extends StatelessWidget {
           );
         },
         itemCount: articles.length,
+      ///通常 ListView （GridView，PageView，CustomScrollView)都会尽可能的填充满 parent 组件给的空间大小.
+      ///而 shrinkWrap: true 则是只满足自身大小。
       shrinkWrap: true,
+      ///NeverScrollableScrollPhysics禁止滚动，不响应滚动事件
       physics: NeverScrollableScrollPhysics(),
 
     );
   }
+
+  /**
+   * ScrollPhysics	释义
+      BouncingScrollPhysics	允许滚动出边界，超过边界时会有回弹效果，会响应滚动事件
+      ClampingScrollPhysics	不允许滚动出边界，会响应滚动事件
+      AlwaysScrollableScrollPhysics	一直响应滚动事件
+      NeverScrollableScrollPhysics	禁止滚动，不响应滚动事件
+      FixedExtentScrollPhysics	ListWheelScrollView滚轮使用时，item都会停止在中间位置，不会停在分割线
+      PageScrollPhysics	PageView滚轮使用时，item都会停止在一页，不会停止在分割线位置
+      RangeMaintainingScrollPhysics	当内容突然改变尺寸时，试图将滚动位置保持在范围内的滚动物理
+   *
+   * */
 
 }
