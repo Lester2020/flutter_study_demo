@@ -18,8 +18,8 @@
 
 ## 温馨提示
 
--部分页面的接口通过抓包获取的，仅用于学习使用，请勿适用于任何商业用途。
--部分自定义iconData来自于icondata素材库
+- 部分页面的接口通过抓包获取的，仅用于学习使用，请勿适用于任何商业用途。
+- 部分自定义iconData来自于icondata素材库
 
 ## 图片预览
   ![screen](https://github.com/Lester2020/NotebookDemo/blob/main/screen_1.gif)
