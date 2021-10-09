@@ -14,6 +14,7 @@ import 'package:flutter_study_demo/basic/demo/keybord_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/transform_demo_page.dart';
 import 'package:flutter_study_demo/basic/demo/widget_layout_demo1.dart';
 import 'package:flutter_study_demo/basic/demo/widget_layout_demo2.dart';
+import 'package:flutter_study_demo/basic/demo/widget_layout_demo3.dart';
 import 'package:flutter_study_demo/basic/grid_view/grid_view_builder_demo.dart';
 import 'package:flutter_study_demo/basic/grid_view/grid_view_count_demo.dart';
 import 'package:flutter_study_demo/basic/grid_view/grid_view_refresh_demo.dart';
@@ -199,6 +200,7 @@ Map<String, Widget> itemRouters = {
   "三方插件-WebView加载HTML" : const WebViewHtmlPage(),
   "布局练习1" : const PitLayoutDemo(),
   "布局练习2" : const CreditCardDemo(),
+  '布局练习3' : const WidgetLayoutDemo3(),
   '下拉刷新练习' : const PullDownRefreshDemo(),
   '上拉刷新练习' : const PullUpRefreshDemo(),
   'ListView刷新练习' : const ListViewRefreshDemo(),
