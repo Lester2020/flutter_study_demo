@@ -26,7 +26,9 @@ import 'package:flutter_study_demo/basic/list_view/pull_up_refresh_demo.dart';
 import 'package:flutter_study_demo/basic/sliver_view/sliver_appbar_float_demo.dart';
 import 'package:flutter_study_demo/basic/sliver_view/sliver_appbar_pinned_demo.dart';
 import 'package:flutter_study_demo/basic/sliver_view/sliver_appbar_snap_demo.dart';
+import 'package:flutter_study_demo/basic/sliver_view/sliver_basic_usage_demo.dart';
 import 'package:flutter_study_demo/basic/sliver_view/sliver_custom_header_demo.dart';
+import 'package:flutter_study_demo/basic/sliver_view/sliver_sticky_tabbar_demo.dart';
 import 'package:flutter_study_demo/basic/stick/stick_demo_page.dart';
 import 'package:flutter_study_demo/basic/third/photos_file.dart';
 import 'package:flutter_study_demo/basic/third/webview_html_page.dart';
@@ -205,8 +207,10 @@ Map<String, Widget> itemRouters = {
   'GridView Count用法' : const GridViewCountDemo(),
   'GridView Builder用法' : const GridViewBuilderDemo(),
   'GridView刷新练习' : const GridViewRefreshDemo(),
+  'Sliver基础使用' : const SliverBasicUsageDemo(),
   'SliverCustomHeader效果' : const SliverCustomHeaderDemo(),
   'SliverAppBarFloat效果' : const SliverAppBarFloatDemo(),
   'SliverAppBarPinned效果' : const SliverAppBarPinnedDemo(),
   'SliverAppBarSnap效果' : const SliverAppBarSnapDemo(),
+  'SliverStickyTabBar效果' : const SliverStickyTabBarDemo(),
 };
