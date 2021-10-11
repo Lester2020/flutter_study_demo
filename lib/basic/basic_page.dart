@@ -24,6 +24,7 @@ import 'package:flutter_study_demo/basic/list_view/list_view_refresh_demo.dart';
 import 'package:flutter_study_demo/basic/list_view/list_view_separated_demo.dart';
 import 'package:flutter_study_demo/basic/list_view/pull_down_refresh_demo.dart';
 import 'package:flutter_study_demo/basic/list_view/pull_up_refresh_demo.dart';
+import 'package:flutter_study_demo/basic/short_video/short_video_page.dart';
 import 'package:flutter_study_demo/basic/sliver_view/sliver_appbar_float_demo.dart';
 import 'package:flutter_study_demo/basic/sliver_view/sliver_appbar_pinned_demo.dart';
 import 'package:flutter_study_demo/basic/sliver_view/sliver_appbar_snap_demo.dart';
@@ -215,4 +216,5 @@ Map<String, Widget> itemRouters = {
   'SliverAppBarPinned效果' : const SliverAppBarPinnedDemo(),
   'SliverAppBarSnap效果' : const SliverAppBarSnapDemo(),
   'SliverStickyTabBar效果' : const SliverStickyTabBarDemo(),
+  'PageView实现上下滑动效果' : const ShortVideoPage(),
 };

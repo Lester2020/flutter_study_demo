@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.14.0 <3.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -58,6 +58,8 @@ dependencies:
   sprintf: ^6.0.0
   #toast提示
   fluttertoast: ^8.0.8
+  #视频播放
+  video_player: ^2.2.5
 
 dev_dependencies:
   flutter_test:
@@ -114,6 +116,17 @@ flutter:
       - images/icon_publish.png
       - images/player_pause_icon.png
       - images/bank_zs.png
+      - images/blur_bg.jpg
+      - images/star_0.jpeg
+      - images/star_1.jpeg
+      - images/star_2.jpeg
+      - images/star_3.jpeg
+      - images/star_4.jpeg
+      - images/star_5.jpeg
+      - images/cross.webp
+      - images/game_tag.webp
+      - images/suolong.png
+      - images/tag_bg.webp
       - bundles/NewsDetailStyle.css
       - bundles/NewsDetailUtils.js
 
