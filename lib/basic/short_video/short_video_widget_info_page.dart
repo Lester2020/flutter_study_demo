@@ -25,6 +25,11 @@ class _ShortVideoWidgetInfoPageState extends State<ShortVideoWidgetInfoPage> {
             right: 0,
             child: _getChannelLayout(),
           ),
+          Positioned(
+            right: 20,
+            bottom: 0,
+            child: _getAdLayout(),
+          )
         ],
       ),
     );
@@ -86,6 +91,44 @@ class _ShortVideoWidgetInfoPageState extends State<ShortVideoWidgetInfoPage> {
             Icons.arrow_forward_ios,
             size: 12,
             color: Colors.white.withAlpha(150),
+          )
+        ],
+      ),
+    );
+  }
+
+  _getAdLayout() {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(left: 10, bottom: 2),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(2),
+        color: const Color.fromARGB(200, 192, 117, 118)
+      ),
+      child: Row(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                '热血航线集结',
+                style: TextStyle(
+                  fontSize: 15,
+                  color: Colors.white
+                ),
+              ),
+              Text(
+                '开播看播拿大奖',
+                style: TextStyle(
+                  fontSize: 9,
+                  color: Colors.grey.shade400
+                ),
+              )
+            ],
+          ),
+          Image.asset(
+            'images/suolong.png',
+            width: 30,
           )
         ],
       ),

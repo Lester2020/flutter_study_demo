@@ -2,7 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_study_demo/basic/short_video/short_video_widget_bottom_page.dart';
+import 'package:flutter_study_demo/basic/short_video/short_video_widget_info_page.dart';
 import 'package:flutter_study_demo/basic/short_video/short_video_widget_top_page.dart';
+import 'package:flutter_study_demo/basic/short_video/short_video_widget_video_page.dart';
 
 class ShortVideoWidgetPage extends StatefulWidget {
   final Function onClose;
@@ -32,6 +35,18 @@ class _ShortVideoWidgetPageState extends State<ShortVideoWidgetPage> {
               widget.onClose.call();
             }),
           ),
+          Positioned(
+            top: MediaQueryData.fromWindow(window).padding.top + 60,
+            child: const ShortVideoWidgetInfoPage(),
+          ),
+          Positioned(
+            top: MediaQueryData.fromWindow(window).padding.top + 100,
+            child: const ShortVideoWidgetVideoPage(),
+          ),
+          const Positioned(
+            bottom: 0,
+            child: ShortVideoWidgetBottomPage(),
+          )
         ],
       ),
     );
@@ -39,9 +54,7 @@ class _ShortVideoWidgetPageState extends State<ShortVideoWidgetPage> {
 
   /// 设置背景图片
   _setBgImg() {
-    return Container(
-      child: Image.asset('images/blur_bg.jpg', fit: BoxFit.fill),
-    );
+    return Image.asset('images/blur_bg.jpg', fit: BoxFit.fill);
   }
 
   /// 设置高斯模糊

@@ -12,13 +12,13 @@ class ShortVideoPage extends StatefulWidget {
 
 class _ShortVideoPageState extends State<ShortVideoPage> {
 
-  PageController _controller = PageController(keepPage: true);
+  final PageController _controller = PageController(keepPage: true);
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance?.addPostFrameCallback((timeStamp) {
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarColor: Colors.black,
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light
