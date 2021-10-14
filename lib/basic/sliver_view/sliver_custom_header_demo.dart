@@ -45,10 +45,10 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
       this.title);
 
   @override
-  double get minExtent => this.collapsedHeight + this.paddingTop;
+  double get minExtent => collapsedHeight + paddingTop;
 
   @override
-  double get maxExtent => this.expandedHeight;
+  double get maxExtent => expandedHeight;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
@@ -58,25 +58,23 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
     updateStatusBarBrightness(shrinkOffset);
-    return Container(
-      height: this.maxExtent,
+    return SizedBox(
+      height: maxExtent,
       width: MediaQuery.of(context).size.width,
       child: Stack(
         fit: StackFit.expand,
         children: [
-          Container(
-            child: Image.network(
-              this.coverImgUrl,
-              fit: BoxFit.cover,
-            ),
+          Image.network(
+            coverImgUrl,
+            fit: BoxFit.cover,
           ),
           Positioned(
             left: 0,
-            top: this.maxExtent / 2,
+            top: maxExtent / 2,
             right: 0,
             bottom: 0,
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -93,11 +91,11 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
             right: 0,
             top: 0,
             child: Container(
-              color: this.headerBgColor(shrinkOffset),
+              color: headerBgColor(shrinkOffset),
               child: SafeArea(
                 bottom: false,
-                child: Container(
-                  height: this.collapsedHeight,
+                child: SizedBox(
+                  height: collapsedHeight,
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -107,15 +105,15 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                         },
                         icon: Icon(
                             Icons.arrow_back_ios,
-                          color: this.headerTextColor(shrinkOffset, true),
+                          color: headerTextColor(shrinkOffset, true),
                         ),
                       ),
                       Text(
-                        this.title,
+                        title,
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.w500,
-                          color: this.headerTextColor(shrinkOffset, false)
+                          color: headerTextColor(shrinkOffset, false)
                         ),
                       ),
                       IconButton(
@@ -124,7 +122,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
                           }, 
                           icon: Icon(
                             Icons.share,
-                            color: this.headerTextColor(shrinkOffset, true),
+                            color: headerTextColor(shrinkOffset, true),
                           )
                       )
                     ],
@@ -139,17 +137,17 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   void updateStatusBarBrightness(double offsetY) {
-    if(offsetY > 50 && this.statusBarMode == "dark") {
-      this.statusBarMode = "light";
-      SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    if(offsetY > 50 && statusBarMode == "dark") {
+      statusBarMode = "light";
+      SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
         statusBarBrightness: Brightness.light,
         statusBarIconBrightness: Brightness.light
       ));
       
-    } else if(offsetY <= 50 && this.statusBarMode == 'light') {
-      this.statusBarMode = 'dark';
+    } else if(offsetY <= 50 && statusBarMode == 'light') {
+      statusBarMode = 'dark';
       SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(
+        const SystemUiOverlayStyle(
           statusBarBrightness: Brightness.dark,
           statusBarIconBrightness: Brightness.dark
         )
@@ -158,7 +156,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   Color headerBgColor(double offsetY) {
-    int alpha = (offsetY / (this.maxExtent - this.minExtent) * 255).clamp(0, 255).toInt();
+    int alpha = (offsetY / (maxExtent - minExtent) * 255).clamp(0, 255).toInt();
     return Color.fromARGB(alpha, 255, 255, 255);
   }
 
@@ -166,7 +164,7 @@ class SliverCustomHeaderDelegate extends SliverPersistentHeaderDelegate {
     if(offsetY <= 50) {
       return isIcon ? Colors.white : Colors.transparent;
     } else {
-      int alpha = (offsetY / (this.maxExtent - this.minExtent) * 255).clamp(0, 255).toInt();
+      int alpha = (offsetY / (maxExtent - minExtent) * 255).clamp(0, 255).toInt();
       return Color.fromARGB(alpha, 0, 0, 0);
     }
   }
@@ -179,7 +177,7 @@ class SliverContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -195,10 +193,10 @@ class SliverContent extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
-              Padding(padding: EdgeInsets.only(left: 16)),
+              const Padding(padding: EdgeInsets.only(left: 16)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
+                children: const [
                   Text(
                     '哪吒之魔童降世',
                     style: TextStyle(
@@ -235,10 +233,10 @@ class SliverContent extends StatelessWidget {
               )
             ],
           ),
-          Divider(height: 32),
+          const Divider(height: 32),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
+            children: const [
               Text(
                 '剧情简介',
                 style: TextStyle(

@@ -93,14 +93,14 @@ class BasicPage extends StatelessWidget {
         title: const Text("Flutter基础"),
         // backgroundColor: const Color.fromRGBO(237, 67, 71, 1.0),
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.share))
+          IconButton(onPressed: (){}, icon: const Icon(Icons.share))
         ],
         leading: IconButton(
             onPressed: (){
               ///发送消息打开抽屉菜单
               eventBus.fire(UserEvent("openDrawer"));
 
-            }, icon: Icon(Icons.dashboard)),
+            }, icon: const Icon(Icons.dashboard)),
       ),
       body: Scrollbar(
         child: ListView.builder(
@@ -128,7 +128,7 @@ class BasicPage extends StatelessWidget {
         onPressed: (){
 
         },
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }

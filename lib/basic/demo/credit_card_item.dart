@@ -8,16 +8,16 @@ class CreditCardItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 180,
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
-      padding: EdgeInsets.only(left: 20, top: 20),
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
+      padding: const EdgeInsets.only(left: 20, top: 20),
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [Color(0xfff17b68), Color(0xffe95f66)]
         ),
         borderRadius: BorderRadius.circular(8),
-        boxShadow: [
+        boxShadow: const [
           BoxShadow(
             blurRadius: 6,
             spreadRadius: 4,
@@ -57,10 +57,10 @@ class CreditCardItem extends StatelessWidget {
                         fit: BoxFit.scaleDown,
                       ),
                     ),
-                    Padding(padding: EdgeInsets.only(left: 15)),
+                    Padding(padding: const EdgeInsets.only(left: 15)),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
                           "招商银行",
                           style: TextStyle(
@@ -80,7 +80,7 @@ class CreditCardItem extends StatelessWidget {
                     )
                   ],
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 65, top: 20),
                   child: Text(
                       '6210  ****  ****  1426',
@@ -92,7 +92,7 @@ class CreditCardItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                Padding(
+                const Padding(
                   padding: EdgeInsets.only(left: 65, top: 15),
                   child: Text(
                     "10/27",

@@ -11,11 +11,11 @@ class PetDataCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.fromLTRB(16, 16, 16, 0),
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 0),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(0),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
                 blurRadius: 6,
                 spreadRadius: 4,
@@ -41,7 +41,7 @@ class PetDataCard extends StatelessWidget {
       fit: StackFit.passthrough,
       children: [
         ClipRRect(
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(8),
             topRight: Radius.circular(8)
           ),
@@ -57,7 +57,7 @@ class PetDataCard extends StatelessWidget {
           bottom: 0,
           top: 100,
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
                   Color.fromARGB(0, 0, 0, 0),
@@ -76,8 +76,8 @@ class PetDataCard extends StatelessWidget {
   /// 用户信息区域
   Widget _userInfoArea() {
     return Container(
-      margin: EdgeInsets.only(top: 16),
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      margin: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -86,25 +86,25 @@ class PetDataCard extends StatelessWidget {
             children: [
               CircleAvatar(
                 radius: 20,
-                backgroundColor: Color(0xffcccccc),
+                backgroundColor: const Color(0xffcccccc),
                 backgroundImage: NetworkImage(model.userImgUrl),
               ),
-              Padding(padding: EdgeInsets.only(left: 8)),
+              const Padding(padding: EdgeInsets.only(left: 8)),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     model.userName,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.bold,
                       color: Color(0xff333333)
                     ),
                   ),
-                  Padding(padding: EdgeInsets.only(top: 2)),
+                  const Padding(padding: EdgeInsets.only(top: 2)),
                   Text(
                     model.description,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12,
                       color: Color(0xff999999)
                     ),
@@ -115,7 +115,7 @@ class PetDataCard extends StatelessWidget {
           ),
           Text(
             model.publishTime,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 13,
               color: Color(0xff999999)
             ),
@@ -128,15 +128,15 @@ class PetDataCard extends StatelessWidget {
   /// 发布信息区域
   Widget _publishContentArea() {
     return Container(
-      margin: EdgeInsets.only(top: 16),
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      margin: const EdgeInsets.only(top: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            margin: EdgeInsets.only(bottom: 14),
-            padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
-            decoration: BoxDecoration(
+            margin: const EdgeInsets.only(bottom: 14),
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
+            decoration: const BoxDecoration(
                 color: Color(0xffffc600),
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(8),
@@ -146,7 +146,7 @@ class PetDataCard extends StatelessWidget {
             ),
             child: Text(
               "# ${model.topic}",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 12,
                 color: Colors.white
               ),
@@ -154,7 +154,7 @@ class PetDataCard extends StatelessWidget {
           ),
           Text(
             model.publishContent,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.bold,
               color: Color(0xff333333)
@@ -168,14 +168,14 @@ class PetDataCard extends StatelessWidget {
   /// 点赞信息区域
   Widget _interactionArea() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 16),
-      padding: EdgeInsets.symmetric(horizontal: 16),
+      margin: const EdgeInsets.symmetric(vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          _interactionItem(Icons.message, Color(0xff999999), model.replies),
-          _interactionItem(Icons.favorite, Color(0xffffc600), model.likes),
-          _interactionItem(Icons.share, Color(0xff999999), model.shares)
+          _interactionItem(Icons.message, const Color(0xff999999), model.replies),
+          _interactionItem(Icons.favorite, const Color(0xffffc600), model.likes),
+          _interactionItem(Icons.share, const Color(0xff999999), model.shares)
         ],
       ),
     );
@@ -193,10 +193,10 @@ class PetDataCard extends StatelessWidget {
             size: 16,
             color: color,
           ),
-          Padding(padding: EdgeInsets.only(left: 6)),
+          const Padding(padding: EdgeInsets.only(left: 6)),
           Text(
             count.toString(),
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               color: Color(0xff999999)
             ),

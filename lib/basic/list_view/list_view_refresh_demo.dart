@@ -14,7 +14,7 @@ class ListViewRefreshDemo extends StatefulWidget {
 class _ListViewRefreshDemoState extends State<ListViewRefreshDemo> {
 
   List<NewsViewModel> _list = List.from(newsList);
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
   bool _isLoading = false;
 
   @override

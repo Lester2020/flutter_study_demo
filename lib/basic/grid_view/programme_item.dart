@@ -28,7 +28,7 @@ class ProgrammeItem extends StatelessWidget {
                   bottom: 0,
                   height: coverSize / 2,
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
@@ -45,18 +45,18 @@ class ProgrammeItem extends StatelessWidget {
                   right: 0,
                   bottom: 0,
                   child: Padding(
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     child: Row(
                       children: [
-                        Icon(
+                        const Icon(
                           Icons.play_arrow,
                           color: Colors.white,
                           size: 13,
                         ),
-                        Padding(padding: EdgeInsets.only(left: 5)),
+                        const Padding(padding: EdgeInsets.only(left: 5)),
                         Text(
                           Helper.numFormat(model.playsCount),
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 14,
                             color: Colors.white
                           ),
@@ -66,13 +66,13 @@ class ProgrammeItem extends StatelessWidget {
                   ),
                 ),
                 !model.needVip
-                    ? SizedBox()
+                    ? const SizedBox()
                     : Positioned(
                   left: 0,
                   top: 0,
                   child: Container(
-                    padding: EdgeInsets.fromLTRB(5, 2, 10, 2),
-                    decoration: BoxDecoration(
+                    padding: const EdgeInsets.fromLTRB(5, 2, 10, 2),
+                    decoration: const BoxDecoration(
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(4),
                         bottomRight: Radius.circular(20),
@@ -84,7 +84,7 @@ class ProgrammeItem extends StatelessWidget {
                         ]
                       )
                     ),
-                    child: Text(
+                    child: const Text(
                       'VIP',
                       style: TextStyle(
                         fontSize: 14,
@@ -98,14 +98,14 @@ class ProgrammeItem extends StatelessWidget {
             ),
           ),
         ),
-        Padding(padding: EdgeInsets.only(top: 5)),
+        const Padding(padding: EdgeInsets.only(top: 5)),
         SizedBox(
           height: 40,
           child: Text(
             model.title,
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w500,
               color: Color(0xff333333),

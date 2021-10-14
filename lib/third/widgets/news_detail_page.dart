@@ -75,14 +75,14 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
                   }
                   return NavigationDecision.navigate;
                 } ,
-                javascriptChannels: <JavascriptChannel>[
+                javascriptChannels: <JavascriptChannel>{
                   JavascriptChannel(
                       name: "share",
                       onMessageReceived: (JavascriptMessage message) {
                         print("参数： ${message.message}");
                       }
                   ),
-                ].toSet(),
+                },
 
               ),
             ),
@@ -194,7 +194,7 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
             color: Theme.of(context).textTheme.bodyText1?.color,
           )
           ),
-          SizedBox(width: 4),
+          const SizedBox(width: 4),
           IconButton(onPressed: (){
 
           }, icon: Icon(
@@ -256,7 +256,7 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
                   color: iconColor?.withOpacity(0.6)
               )
           ),
-          SizedBox(width: 5),
+          const SizedBox(width: 5),
           Expanded(
             child: Container(
               height: 34,
@@ -264,7 +264,7 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
                 color: Colors.grey.withOpacity(0.25),
                 borderRadius: BorderRadius.circular(17)
               ),
-              padding: EdgeInsets.only(left: 10, right: 10),
+              padding: const EdgeInsets.only(left: 10, right: 10),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -273,7 +273,7 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
                     color: iconColor?.withOpacity(0.8),
                     size: 18,
                   ),
-                  SizedBox(width: 4),
+                  const SizedBox(width: 4),
                   Text(
                     "写评论",
                     style: TextStyle(

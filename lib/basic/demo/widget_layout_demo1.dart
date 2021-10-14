@@ -21,12 +21,12 @@ class PitLayoutDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("布局练习1"),
+        title: const Text("布局练习1"),
       ),
       body: ListView(
         children: [
           PetDataCard(model: _model),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           PetDataCard(model: _model)
         ],
       ),

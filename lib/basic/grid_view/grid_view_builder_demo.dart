@@ -22,11 +22,11 @@ class GridViewBuilderDemo extends StatelessWidget {
 
   Widget renderHeader(){
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
+          const Text(
             '猜你喜欢',
             style: TextStyle(
               fontSize: 22,
@@ -35,7 +35,7 @@ class GridViewBuilderDemo extends StatelessWidget {
             ),
           ),
           Row(
-            children: [
+            children: const [
               Text(
                 '更多',
                 style: TextStyle(
@@ -58,9 +58,9 @@ class GridViewBuilderDemo extends StatelessWidget {
   Widget renderBody() {
     return GridView.builder(
         shrinkWrap: true,
-        physics: NeverScrollableScrollPhysics(),
-        padding: EdgeInsets.symmetric(horizontal: 16),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        physics: const NeverScrollableScrollPhysics(),
+        padding: const EdgeInsets.symmetric(horizontal: 16),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             mainAxisSpacing: 10,
             crossAxisSpacing: 10,

@@ -12,8 +12,8 @@ class PullUpRefreshDemo extends StatefulWidget {
 
 class _PullUpRefreshDemoState extends State<PullUpRefreshDemo> {
 
-  List<NewsViewModel> _list = List.from(newsList);
-  ScrollController _controller = ScrollController();
+  final List<NewsViewModel> _list = List.from(newsList);
+  final ScrollController _controller = ScrollController();
   bool _isLoading = false;
 
   @override
@@ -22,7 +22,7 @@ class _PullUpRefreshDemoState extends State<PullUpRefreshDemo> {
     _controller.addListener(() {
       if(!_isLoading && _controller.position.pixels >= _controller.position.maxScrollExtent){
         setState(() {
-          this._isLoading = true;
+          _isLoading = true;
           loadMoreData();
         });
       }
@@ -30,7 +30,7 @@ class _PullUpRefreshDemoState extends State<PullUpRefreshDemo> {
   }
 
   Future loadMoreData() {
-    return Future.delayed(Duration(seconds: 2), (){
+    return Future.delayed(const Duration(seconds: 2), (){
       setState(() {
         _isLoading = false;
         _list.addAll(newsList);
@@ -48,7 +48,7 @@ class _PullUpRefreshDemoState extends State<PullUpRefreshDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("上拉加载练习"),
+        title: const Text("上拉加载练习"),
       ),
       body: ListView.separated(
           itemBuilder: (context, index){
@@ -59,7 +59,7 @@ class _PullUpRefreshDemoState extends State<PullUpRefreshDemo> {
             }
           },
           separatorBuilder: (context, index){
-            return Divider(
+            return const Divider(
               height: 0.5,
               color: Color(0xffdddddd),
             );
@@ -73,10 +73,10 @@ class _PullUpRefreshDemoState extends State<PullUpRefreshDemo> {
   Widget footerView() {
     if(_isLoading){
       return Container(
-        padding: EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Text(
               '努力加载中...',
               style: TextStyle(
@@ -98,9 +98,9 @@ class _PullUpRefreshDemoState extends State<PullUpRefreshDemo> {
 
     } else {
       return Container(
-        padding: EdgeInsets.symmetric(vertical: 15),
+        padding: const EdgeInsets.symmetric(vertical: 15),
         alignment: Alignment.center,
-        child: Text(
+        child: const Text(
           "上拉加载更多",
           style: TextStyle(
             fontSize: 15,

@@ -9,7 +9,7 @@ class GridViewRefreshDemo extends StatefulWidget {
 
 class _GridViewRefreshDemoState extends State<GridViewRefreshDemo> {
 
-  ScrollController _controller = ScrollController();
+  final ScrollController _controller = ScrollController();
   bool _isLoading = false;
   List _list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
@@ -45,7 +45,7 @@ class _GridViewRefreshDemoState extends State<GridViewRefreshDemo> {
   }
 
   Future footerRefresh() {
-    return Future.delayed(Duration(seconds: 2), (){
+    return Future.delayed(const Duration(seconds: 2), (){
       List temp = [];
       for(int i = _list.length; i < _list.length + 20; i++){
         temp.add(i);
@@ -61,15 +61,15 @@ class _GridViewRefreshDemoState extends State<GridViewRefreshDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GridView刷新练习'),
+        title: const Text('GridView刷新练习'),
       ),
       body: RefreshIndicator(
         onRefresh: headerRefresh,
         child: GridView.builder(
           controller: _controller,
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           itemCount: _list.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
@@ -80,7 +80,7 @@ class _GridViewRefreshDemoState extends State<GridViewRefreshDemo> {
               alignment: Alignment.center,
               child: Text(
                   _list[index].toString(),
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontSize: 20,
                   fontWeight: FontWeight.w500

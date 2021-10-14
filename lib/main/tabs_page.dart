@@ -22,8 +22,8 @@ class _TabsPageState extends State<TabsPage> {
   // final List<String> _imageNames = ["new_home_tabbar", "new_video_tabbar", "new_long_video_tabbar", "new_mine_tabbar"];
   final List<IconData> _normalTabs = [CustomIcon.home, CustomIcon.video, CustomIcon.category, CustomIcon.mine];
   final List<IconData> _selectTabs = [CustomIcon.homeFill, CustomIcon.videoFill, CustomIcon.categoryFill, CustomIcon.mineFill];
-  final Color _themeColor = const Color.fromRGBO(237, 67, 71, 1.0);
-  final Color _unselectedColor = const Color.fromRGBO(34, 34, 34, 1.0);
+  // final Color _themeColor = const Color.fromRGBO(237, 67, 71, 1.0);
+  // final Color _unselectedColor = const Color.fromRGBO(34, 34, 34, 1.0);
   final PageController _controller = PageController(initialPage: 0);
 
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();

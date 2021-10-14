@@ -33,7 +33,7 @@ class _SliverStickyTabBarDemoState extends State<SliverStickyTabBarDemo> with Si
             elevation: 6,
             expandedHeight: 250,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(
+              title: const Text(
                 'SliverStickyTabBar效果',
                 style: TextStyle(
                   color: Colors.white,
@@ -52,7 +52,7 @@ class _SliverStickyTabBarDemoState extends State<SliverStickyTabBarDemo> with Si
               child: TabBar(
                 labelColor: Colors.black,
                 controller: _controller,
-                tabs: [
+                tabs: const [
                   Tab(
                     text: '主页信息',
                   ),
@@ -66,7 +66,7 @@ class _SliverStickyTabBarDemoState extends State<SliverStickyTabBarDemo> with Si
           SliverFillRemaining(
             child: TabBarView(
               controller: _controller,
-              children: [
+              children: const [
                 Center(
                   child: Text('这是主页信息页面'),
                 ),
@@ -94,10 +94,10 @@ class SliverTabBarHeaderDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => this.child.preferredSize.height;
+  double get maxExtent => child.preferredSize.height;
 
   @override
-  double get minExtent => this.child.preferredSize.height;
+  double get minExtent => child.preferredSize.height;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {

@@ -12,9 +12,9 @@ class WebViewHtmlPage extends StatefulWidget {
 
 class _WebViewHtmlPageState extends State<WebViewHtmlPage> {
   late WebViewController _controller;
-  String _title = "webview";
+  final String _title = "webview";
   double _height = 100;
-  double _width =100;
+  final double _width =100;
   String htmlStr = """
   <!DOCTYPE html><html>
 <head><title>Navigation Delegate Example</title></head>
@@ -39,7 +39,7 @@ The navigation delegate is set to block navigation to the youtube website.
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("$_title"),
+          title: Text(_title),
         ),
         body: ListView(
           children: <Widget>[
@@ -75,40 +75,40 @@ The navigation delegate is set to block navigation to the youtube website.
                       }
                       return NavigationDecision.navigate;
                     } ,
-                    javascriptChannels: <JavascriptChannel>[
+                    javascriptChannels: <JavascriptChannel>{
                       JavascriptChannel(
                           name: "share",
                           onMessageReceived: (JavascriptMessage message) {
                             print("参数： ${message.message}");
                           }
                       ),
-                    ].toSet(),
+                    },
 
                   )
               ),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
-            ListTile(
+            const ListTile(
               title: Text("这是一个单元格"),
             ),
           ],

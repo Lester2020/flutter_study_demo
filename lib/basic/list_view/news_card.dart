@@ -12,7 +12,7 @@ class NewsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: const EdgeInsets.all(16),
       child: Row(
         children: [
           Expanded(
@@ -20,29 +20,29 @@ class NewsCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  this.model.title,
+                  model.title,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff333333)
                   ),
                 ),
-                Padding(padding: EdgeInsets.only(top: 3)),
+                const Padding(padding: EdgeInsets.only(top: 3)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
                       model.source,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 13,
                         color: Color(0xff999999)
                       ),
                     ),
                     Text(
                       '${model.comments}评论',
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 13,
                         color: Color(0xff999999)
                       ),
@@ -52,9 +52,9 @@ class NewsCard extends StatelessWidget {
               ],
             ),
           ),
-          Padding(padding: EdgeInsets.only(left: 16)),
+          const Padding(padding: EdgeInsets.only(left: 16)),
           Image.network(
-            this.model.coverImgUrl,
+            model.coverImgUrl,
             width: 100,
             height: 60,
             fit: BoxFit.cover,

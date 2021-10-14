@@ -9,8 +9,7 @@ class CustomUnderlineTabIndicator extends Decoration {
   const CustomUnderlineTabIndicator({
     this.borderSide = const BorderSide(width: 2.0, color: Colors.white),
     this.insets = EdgeInsets.zero,
-  }) : assert(borderSide != null),
-        assert(insets != null);
+  });
 
   /// The color and weight of the horizontal line drawn below the selected tab.
   final BorderSide borderSide;
@@ -51,8 +50,6 @@ class CustomUnderlineTabIndicator extends Decoration {
   }
 
   Rect _indicatorRectFor(Rect rect, TextDirection textDirection) {
-    assert(rect != null);
-    assert(textDirection != null);
     final Rect indicator = insets.resolve(textDirection).deflateRect(rect);
     return Rect.fromLTWH(
       indicator.left,
@@ -70,14 +67,12 @@ class CustomUnderlineTabIndicator extends Decoration {
 
 class _UnderlinePainter extends BoxPainter {
   _UnderlinePainter(this.decoration, VoidCallback? onChanged)
-      : assert(decoration != null),
-        super(onChanged);
+      : super(onChanged);
 
   final CustomUnderlineTabIndicator decoration;
 
   @override
   void paint(Canvas canvas, Offset offset, ImageConfiguration configuration) {
-    assert(configuration != null);
     assert(configuration.size != null);
     final Rect rect = offset & configuration.size!;
     final TextDirection textDirection = configuration.textDirection!;

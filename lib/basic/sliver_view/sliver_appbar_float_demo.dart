@@ -13,7 +13,7 @@ class SliverAppBarFloatDemo extends StatelessWidget {
             expandedHeight: 250,
             elevation: 5,
             flexibleSpace: FlexibleSpaceBar(
-              title: Text(
+              title: const Text(
                   'SliverAppBar效果',
                 style: TextStyle(
                   color: Colors.white
@@ -30,10 +30,10 @@ class SliverAppBarFloatDemo extends StatelessWidget {
                 bool isOdd = index % 2 == 1;
                 return Container(
                   alignment: Alignment.center,
-                  color: isOdd ? Colors.white : Color(0xffeaeaea),
+                  color: isOdd ? Colors.white : const Color(0xffeaeaea),
                   child: Text(
                     index.toString(),
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w500,
                       color: Colors.black

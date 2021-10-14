@@ -38,7 +38,7 @@ class _NewsPageState extends State<NewsPage> with AutomaticKeepAliveClientMixin 
   final Map<String, dynamic> _params;
   int _page = 0;
   List<NewsModel> _dataArray = [];
-  RefreshController _controller = RefreshController(initialRefresh: true);
+  final RefreshController _controller = RefreshController(initialRefresh: true);
   _NewsPageState(this._subUrl, this._params);
 
   void _headerRefresh() async {

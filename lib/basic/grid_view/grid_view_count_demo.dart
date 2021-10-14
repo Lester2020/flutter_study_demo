@@ -9,11 +9,11 @@ class GridViewCountDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('GridView Count用法'),
+        title: const Text('GridView Count用法'),
       ),
       body: GridView.count(
         crossAxisCount: 5,
-        padding: EdgeInsets.symmetric(vertical: 0),
+        padding: const EdgeInsets.symmetric(vertical: 0),
         children: serviceList.map((m) {
           return ServiceItem(model: m);
         }).toList(),

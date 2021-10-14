@@ -53,15 +53,15 @@ class AppTheme {
 
           ///比如：ListTile.title
           subtitle1: TextStyle(color: isDark ? Colors.white : Colors.black),
-          subtitle2: TextStyle(color: Colors.grey, fontSize: 12),
+          subtitle2: const TextStyle(color: Colors.grey, fontSize: 12),
 
           ///页面主标题文字
           bodyText1: TextStyle(
-              color: isDark ? Color(0xffdddddd) : Color(0xff2a2a2a),
+              color: isDark ? const Color(0xffdddddd) : const Color(0xff2a2a2a),
               fontSize: 18, fontWeight: FontWeight.normal),
 
           bodyText2: TextStyle(
-              color: isDark ? Color(0xfff5f5f5) : Color(0xff1a1a1a),
+              color: isDark ? const Color(0xfff5f5f5) : const Color(0xff1a1a1a),
               fontSize: 15),
 
           ///[ElevatedButton], [TextButton] and [OutlinedButton]文字颜色
@@ -93,17 +93,17 @@ class AppTheme {
             selectedItemColor: mainColor,
             unselectedItemColor:
                 isDark ? const Color(0xfff5f5f5) : const Color(0xff222222),
-            selectedLabelStyle: TextStyle(fontSize: 12),
-            unselectedLabelStyle: TextStyle(fontSize: 12),
+            selectedLabelStyle: const TextStyle(fontSize: 12),
+            unselectedLabelStyle: const TextStyle(fontSize: 12),
             showSelectedLabels: true,
             showUnselectedLabels: true),
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
 
             ///这是整体设置，如果页面需要单独设置只需要在AppBar组件中设置即可
             brightness: Brightness.dark,
             centerTitle: true,
             textTheme: TextTheme(
-              headline6: const TextStyle(
+              headline6: TextStyle(
                   color: Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.bold),

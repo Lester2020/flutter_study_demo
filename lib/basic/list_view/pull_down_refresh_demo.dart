@@ -12,7 +12,7 @@ class PullDownRefreshDemo extends StatefulWidget {
 
 class _PullDownRefreshDemoState extends State<PullDownRefreshDemo> {
 
-  List _list = newsList;
+  final List _list = newsList;
 
   Future onRefresh(){
     return Future.delayed(Duration(seconds: 2), () {

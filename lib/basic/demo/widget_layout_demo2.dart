@@ -8,10 +8,10 @@ class CreditCardDemo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("布局练习2"),
+        title: const Text("布局练习2"),
       ),
       body: ListView(
-        children: [
+        children: const [
           CreditCardItem(),
           CreditCardItem(),
           CreditCardItem(),

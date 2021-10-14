@@ -25,7 +25,7 @@ class _InheritedWidgetFileState extends State<InheritedWidgetFile> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
+                const Padding(
                     padding: EdgeInsets.all(20),
                   child: ShowDataFile(),
                 ),
@@ -33,7 +33,7 @@ class _InheritedWidgetFileState extends State<InheritedWidgetFile> {
                   setState(() {
                     count++;
                   });
-                }, child: Text("增加一次"))
+                }, child: const Text("增加一次"))
               ],
             )
         ),

@@ -24,10 +24,10 @@ class _NewsItemState extends State<NewsItem> {
         }));
       },
       child: Container(
-        padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
+        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
         color: Theme.of(context).backgroundColor,
         child: Container(
-            padding: EdgeInsets.only(top: 10, bottom: 10),
+            padding: const EdgeInsets.only(top: 10, bottom: 10),
             decoration: BoxDecoration(
               border: Border(
                   bottom: BorderSide(
@@ -66,7 +66,7 @@ class _NewsItemState extends State<NewsItem> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _titleItem(),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         _sourceItem()
       ],
     );
@@ -91,7 +91,7 @@ class _NewsItemState extends State<NewsItem> {
           widget.model?.source??"未知来源",
           style: Theme.of(context).textTheme.subtitle2,
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Text(
           widget.model?.replyCountStr ?? "",
           style: Theme.of(context).textTheme.subtitle2,
@@ -105,7 +105,7 @@ class _NewsItemState extends State<NewsItem> {
 
   _closeBtn() {
     if(widget.model?.tagList != null && widget.model?.tagList?.first.text == "置顶"){
-      return SizedBox();
+      return const SizedBox();
     } else {
       return InkWell(
         onTap: (){
@@ -132,13 +132,13 @@ class _NewsItemState extends State<NewsItem> {
         ),
       );
     } else {
-      return SizedBox(width: 0);
+      return const SizedBox(width: 0);
     }
   }
 
   /// 单图片单元格
   _singleImgNewsItem(){
-    return Container(
+    return SizedBox(
       height: 80,
       child: Row(
         children: [
@@ -148,12 +148,12 @@ class _NewsItemState extends State<NewsItem> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 _titleItem(),
-                SizedBox(height: 4),
+                const SizedBox(height: 4),
                 _sourceItem()
               ],
             ),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           _radiusImage(widget.model?.imgsrc ?? "", 1.35)
         ],
       ),
@@ -182,7 +182,7 @@ class _NewsItemState extends State<NewsItem> {
         _titleItem(),
         Container(
           height: (Global.screenWidth - 30 - 10) / 3 / 1.35 + 12,
-          padding: EdgeInsets.only(top: 6, bottom: 6),
+          padding: const EdgeInsets.only(top: 6, bottom: 6),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -203,7 +203,7 @@ class _NewsItemState extends State<NewsItem> {
       children: [
         _titleItem(),
         Container(
-          padding: EdgeInsets.only(top: 6, bottom: 6),
+          padding: const EdgeInsets.only(top: 6, bottom: 6),
           height: (Global.screenWidth - 30) / 1.6 + 12,
           child: Stack(
             alignment: Alignment.center,
@@ -227,15 +227,15 @@ class _NewsItemState extends State<NewsItem> {
                   children: [
                     Text(
                       widget.model?.videoinfo?.playCount??"0次播放",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.white
                       ),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Text(
                       widget.model?.videoinfo?.length??"00:00",
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 12,
                         color: Colors.white
                       ),

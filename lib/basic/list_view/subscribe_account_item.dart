@@ -30,7 +30,7 @@ class SubscribeAccountItem extends StatelessWidget {
 
   Widget _accountInfo() {
     return Padding(
-      padding: EdgeInsets.all(8),
+      padding: const EdgeInsets.all(8),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -41,10 +41,10 @@ class SubscribeAccountItem extends StatelessWidget {
                 backgroundColor: Colors.grey,
                 backgroundImage: NetworkImage(model.accountImgUrl),
               ),
-              Padding(padding: EdgeInsets.only(left: 10)),
+              const Padding(padding: EdgeInsets.only(left: 10)),
               Text(
                 model.accountName,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w500,
                   color: Color(0xff666666),
@@ -54,7 +54,7 @@ class SubscribeAccountItem extends StatelessWidget {
           ),
           Text(
             model.publishTime,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 13,
               color: Color(0xff999999),
             ),
@@ -70,7 +70,7 @@ class SubscribeAccountItem extends StatelessWidget {
     return ClipRRect(
       borderRadius: !shouldClip
           ? BorderRadius.circular(0)
-          : BorderRadius.only(
+          : const BorderRadius.only(
         bottomLeft: Radius.circular(8),
         bottomRight: Radius.circular(8),
       ),
@@ -88,9 +88,9 @@ class SubscribeAccountItem extends StatelessWidget {
             bottom: 0,
             height: 100,
             child: Container(
-              padding: EdgeInsets.fromLTRB(10, 0, 10, 10),
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
               alignment: Alignment.bottomLeft,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
@@ -104,7 +104,7 @@ class SubscribeAccountItem extends StatelessWidget {
                 article.title,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
                   color: Colors.white
@@ -132,14 +132,14 @@ class SubscribeAccountItem extends StatelessWidget {
                     articles[index].title,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       color: Color(0xff333333),
                     ),
                   ),
                 ),
-                Padding(padding: EdgeInsets.all(10)),
+                const Padding(padding: EdgeInsets.all(10)),
                 Image.network(
                   articles[index].coverImgUrl,
                   width: 50,
@@ -153,8 +153,8 @@ class SubscribeAccountItem extends StatelessWidget {
         separatorBuilder: (context, index){
           return Container(
             height: 0.5,
-            margin: EdgeInsets.symmetric(horizontal: 15),
-            color: Color(0xffdddddd),
+            margin: const EdgeInsets.symmetric(horizontal: 15),
+            color: const Color(0xffdddddd),
           );
         },
         itemCount: articles.length,
@@ -162,7 +162,7 @@ class SubscribeAccountItem extends StatelessWidget {
       ///而 shrinkWrap: true 则是只满足自身大小。
       shrinkWrap: true,
       ///NeverScrollableScrollPhysics禁止滚动，不响应滚动事件
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
 
     );
   }
